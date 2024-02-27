@@ -1,0 +1,64 @@
+html {
+    height: 100%
+}
+
+body {
+    color: #333;
+    font-family: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    overflow-wrap: break-word
+}
+
+a:visited {
+    color: #639;
+    text-decoration: none
+}
+
+select {
+    font-family: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 3px 5px;
+    border-radius: 2px
+}
+
+input {
+    vertical-align: middle;
+    font-family: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+input[type="search"],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
+    max-width: 100%;
+    min-height: 30px;
+    margin: 0;
+    padding: 4px 7px;
+    border-radius: 2px;
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+    background: #fff;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.2s ease
+}
+
+input::placeholder {
+    color: #aaa
+}
+
+a:link {
+    color: #039;
+    text-decoration: none
+}

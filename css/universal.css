@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@font-face {
+    src: url(../assets/fontello.woff2) format("woff2");
+    font-family: fontello;
+    font-style: normal;
+    font-weight: 400
+}
+
+@font-face {
+    font-display: block;
+    src: url(../assets/fa-regular-400.woff2) format("woff2");
+    font-family: 'Font Awesome 5 Pro';
+    font-style: normal;
+    font-weight: 400
+}
+

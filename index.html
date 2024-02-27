@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Workbench</title>
+    <link rel="shortcut icon" href="./assets/crafting_table.png">
+
+    <link rel="stylesheet" href="./css/common.css" type="text/css" id="common" />
+    <link rel="stylesheet" href="./css/default.css" type="text/css" id="default" />
+    <link rel="stylesheet" href="./css/reset.css" type="text/css" id="reset" />
+    <link rel="stylesheet" href="./css/universal.css" type="text/css" id="universal" />
+    <link rel="stylesheet" href="./css/layout.css" type="text/css" id="layout" />
+    <link rel="stylesheet" href="./css/swiper.css" type="text/css" id="swiper" />
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <header class="l-header">
+                <div class="headerCore">
+
+                    <div class="headerCore_top">
+                        <div class="headerCore_top_item">
+                            <p class="header_description"> Welcome to my workbench! </p>
+                        </div>
+                        <div class="headerCore_top_item">
+                            <div class="header_dropdown_nav type_language" id="dropdown_language">
+                                <div class="header_dropdown_nav_Link"> Language </div>
+
+                                <div class="header_dropdown_nav_group type_language">
+                                    <ul class="header_dropdown_list">
+                                        <li class="header_dropdown_list_item">
+                                            <a href="./index.html">English</a>
+                                        </li>
+                                        <li class="header_dropdown_list_item">
+                                            <a href="./index.html">Portuguese</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <!-- Fix type_service -->
+                            <div class="header_dropdown_nav type_service" id="dropdown_service">
+                                <div class="header_dropdown_nav_Link"> Other </div>
+
+                                <div class="header_dropdown_nav_group type_service">
+                                    <ul class="header_dropdown_list">
+                                        <li class="header_dropdown_list_item">
+                                            <a href="./index.html">N/A</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript" src="./script/toggle.js"></script>
+                    </div>
+
+
+                    <div class="headerCore-sub">
+                        <a href="./index.html" class="logo">
+                            <img src="./assets/horizontal_wretch.png" alt="Workbench Logo" width="64" height="24">
+                        </a>
+
+                        <div class="globalSearch">
+                            <form class="globalSearch-form" action="./search.html" method="post">
+                                <div class="globalSearchSelect">
+                                    <div class="globalSearchSelect-lable">
+                                        <!-- not sure what [selected] is for, probably for v-model -->
+                                        <span v-text="searchCategories[selected]">N/A</span>
+                                    </div>
+                                    <select v-model="selected" class="globalSearchSelect-list is-active">
+                                        <option value="">N/A</option>
+                                        <option value="op1">Option 1</option>
+                                        <option value="op2">Option 2</option>
+                                        <option value="op3">Option 3</option>
+                                    </select>
+                                </div>
+                                <div class="globalSearchForm">
+                                    <input name="keyword" type="search" id="search_text" ref="keyword" maxlength="145"
+                                        autocomplete="off" aria-autocomplete="list" placeholder="Search">
+                                </div>
+                                <button id="search_button" class="globalSearchBtn" type="submit"
+                                    @click="saveSelected()"><i>Search</i></button>
+                            </form>
+                        </div>
+                        <div class="detailedSearch">
+                            <a href="./adv-search.html">Advanced Search</a>
+                        </div>
+
+                        <ul class="globalNav">
+                            <li class="globalNav-item type-register">
+                                <a href="./register.html"><i>Registration</i></a>
+                            </li>
+                            <li class="globalNav-item type-login" v-cloak>
+                                <a href="./login.html"><i>Log in</i></a>
+                            </li>
+                            <li class="globalNav-item type-login">
+                                <a href="./login.html"><i>Log out</i></a>
+                            </li>
+                            <li class="globalNav-item type-favorite" v-cloak>
+                                <a href="./favorites.html"><i>Favorites</i></a>
+                            </li>
+
+                            <li class="globalNav-item type-guide">
+                                <a href="#"><i>Guide</i></a>
+                                <div class="dropdown_list type_guide">
+                                    <div class="dropdown_list_inner">
+                                        <ul class="menu_list">
+                                            <li class="menu_list_item">
+                                                <a href="./help.html" rel="noopener" target="_blank"
+                                                    class="link">Help</a>
+                                            </li>
+                                            <li class="menu_list_item">
+                                                <a href="./about.html" class="link">About the site</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="headerCore-main">
+                        <div class="headerCore-mainInner">
+                            <ul class="floorTab type-section" role="navigation">
+                                <li class="floorTab-item type-doujin is-active">
+                                    <h1><a href="./index.html">Section 1</a></h1>
+                                </li>
+                                <li class="floorTab-item type-ebook "><a href="./section2.html">Section 2</a></li>
+                                <li class="floorTab-item type-com   "><a href="./section3.html">Section 3</a> </li>
+                                <li class="floorTab-item type-app   "><a href="./section4.html">Section 4</a></li>
+                                <li class="floorTab-item type-tool "><a href="./section5.html">Section 5</a></li>
+                                <li class="floorTab-item type-aix "><a href="./section6.html">Section 6</a></li>
+                                <li class="floorTab-item type-nijiyome"><a href="./section7.html">Section 7</a></li>
+                            </ul>
+
+                            <div class="floorNavLink">
+                                <div class="floorNavLink-item type-general"><a href="./index.html"> Button 1</a></div>
+                                <div class="floorNavLink-item type-female"><a href="./index.html"> Button 2</a></div>
+                            </div>
+                        </div>
+
+                        <div class="floorSubNav">
+                            <div class="floorSubNav-item">
+                                <ul class="headerNav">
+                                    <li class="headerNav-item"><a href="./index.html" class="top is-active">Home
+                                            Page</a></li>
+                                    <li class="headerNav-item"><a href="./subsection2.html" class="game">Subsection
+                                            2</a></li>
+                                    <li class="headerNav-item"><a href="./subsection3.html" class="video">Subsection
+                                            3</a></li>
+                                    <li class="headerNav-item"><a href="./subsection4.html" class="voice">Subsection
+                                            4</a></li>
+                                    <li class="headerNav-item"><a href="./subsection5.html" class="manga">Subsection
+                                            5</a></li>
+                                    <li class="headerNav-item"><a href="./subsection6.html" class="illust">Subsection
+                                            6</a></li>
+                                    <li class="headerNav-item"><a href="./subsection7.html" class="ranking">Subsection
+                                            7</a></li>
+                                    <li class="headerNav-item"><a href="./subsection8.html" class="announce">Subsection
+                                            8</a></li>
+                                    <li class="headerNav-item"><a href="./subsection9.html" class="calendar">Subsection
+                                            9</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+
+        <div id="wrapper">
+            <div id="main">
+                <div id="main_inner">
+                    <div data-section_name="top_translation_new_products">
+
+                        <div class="title_01 with_work_push clearfix">
+                            <h2>Articles</h2>
+                        </div>
+
+                        <div class="recommend_list type_top _translation_new_products  maniax">
+                            <div class="swiper-container">
+                                <ul class="swiper-wrapper">
+                                    
+                                    <li class="swiper-slide">
+                                        <div class="recommend_work_item" data-prod="RJ01151223">
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Light"
+                                                class="work_thumb _link_RJ01151223">
+                                                <img src="https://static.wikia.nocookie.net/mspaintadventures/images/6/68/Light_Aspect.svg/revision/latest?cb=20200412194833"
+                                                    alt="The Light Aspect">
+                                            </a>
+                                            <div class="work_category type_MNG">Manga</div>
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Light"
+                                                title="The Light Aspect" class="work_name">The Light Aspect</a>
+                                            <div class="maker_name">
+                                                <a href="https://mspaintadventures.fandom.com/wiki/Aspect">Homestuck</a>
+                                            </div>
+                                            <div class="work_price_wrap">
+                                                <span class="work_price">330<i>&nbsp;JPY</i></span>
+                                                <span class="separator">/</span>
+                                                <span class="work_price">$2.20<i>&nbsp;USD</i></span>
+                                            </div>
+                                            <div class="star_rating star_50">(68)</div>
+                                        </div>
+                                    </li>
+
+                                    <li class="swiper-slide">
+                                        <div class="recommend_work_item" data-prod="RJ01151223">
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Breath"
+                                                class="work_thumb _link_RJ01151223">
+                                                <img src="https://static.wikia.nocookie.net/mspaintadventures/images/a/a0/Breath_Aspect.svg/revision/latest?cb=20200412181523"
+                                                    alt="The Breath Aspect">
+                                            </a>
+                                            <div class="work_category type_MNG">Manga</div>
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Breath"
+                                                title="The Breath Aspect" class="work_name">The Breath Aspect</a>
+                                            <div class="maker_name">
+                                                <a href="https://mspaintadventures.fandom.com/wiki/Aspect">Homestuck</a>
+                                            </div>
+                                            <div class="work_price_wrap">
+                                                <span class="work_price">330<i>&nbsp;JPY</i></span>
+                                                <span class="separator">/</span>
+                                                <span class="work_price">$2.20<i>&nbsp;USD</i></span>
+                                            </div>
+                                            <div class="star_rating star_50">(68)</div>
+                                        </div>
+                                    </li>
+
+                                    <li class="swiper-slide">
+                                        <div class="recommend_work_item" data-prod="RJ01151223">
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Time"
+                                                class="work_thumb _link_RJ01151223">
+                                                <img src="https://static.wikia.nocookie.net/mspaintadventures/images/f/f4/Time_Aspect.svg/revision/latest?cb=20200412171418"
+                                                    alt="The Time Aspect">
+                                            </a>
+                                            <div class="work_category type_MNG">Manga</div>
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Time"
+                                                title="The Time Aspect" class="work_name">The Time Aspect</a>
+                                            <div class="maker_name">
+                                                <a href="https://mspaintadventures.fandom.com/wiki/Aspect">Homestuck</a>
+                                            </div>
+                                            <div class="work_price_wrap">
+                                                <span class="work_price">330<i>&nbsp;JPY</i></span>
+                                                <span class="separator">/</span>
+                                                <span class="work_price">$2.20<i>&nbsp;USD</i></span>
+                                            </div>
+                                            <div class="star_rating star_50">(68)</div>
+                                        </div>
+                                    </li>
+
+                                    <li class="swiper-slide">
+                                        <div class="recommend_work_item" data-prod="RJ01151223">
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Space"
+                                                class="work_thumb _link_RJ01151223">
+                                                <img src="https://static.wikia.nocookie.net/mspaintadventures/images/6/60/Space_Aspect.svg/revision/latest?cb=20200412171236"
+                                                    alt="The Space Aspect">
+                                            </a>
+                                            <div class="work_category type_MNG">Manga</div>
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Space"
+                                                title="The Space Aspect" class="work_name">The Space Aspect</a>
+                                            <div class="maker_name">
+                                                <a href="https://mspaintadventures.fandom.com/wiki/Aspect">Homestuck</a>
+                                            </div>
+                                            <div class="work_price_wrap">
+                                                <span class="work_price">330<i>&nbsp;JPY</i></span>
+                                                <span class="separator">/</span>
+                                                <span class="work_price">$2.20<i>&nbsp;USD</i></span>
+                                            </div>
+                                            <div class="star_rating star_50">(68)</div>
+                                        </div>
+                                    </li>
+
+                                    <li class="swiper-slide">
+                                        <div class="recommend_work_item" data-prod="RJ01151223">
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Mind"
+                                                class="work_thumb _link_RJ01151223">
+                                                <img src="https://static.wikia.nocookie.net/mspaintadventures/images/1/11/Mind_Aspect.svg/revision/latest?cb=20200412202634"
+                                                    alt="The Mind Aspect">
+                                            </a>
+                                            <div class="work_category type_MNG">Manga</div>
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Mind"
+                                                title="The Mind Aspect" class="work_name">The Mind Aspect</a>
+                                            <div class="maker_name">
+                                                <a href="https://mspaintadventures.fandom.com/wiki/Aspect">Homestuck</a>
+                                            </div>
+                                            <div class="work_price_wrap">
+                                                <span class="work_price">330<i>&nbsp;JPY</i></span>
+                                                <span class="separator">/</span>
+                                                <span class="work_price">$2.20<i>&nbsp;USD</i></span>
+                                            </div>
+                                            <div class="star_rating star_50">(68)</div>
+                                        </div>
+                                    </li>
+
+                                    <li class="swiper-slide">
+                                        <div class="recommend_work_item" data-prod="RJ01151223">
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Heart"
+                                                class="work_thumb _link_RJ01151223">
+                                                <img src="https://static.wikia.nocookie.net/mspaintadventures/images/a/ac/Heart_Aspect.svg/revision/latest?cb=20200412171916"
+                                                    alt="The Heart Aspect">
+                                            </a>
+                                            <div class="work_category type_MNG">Manga</div>
+                                            <a href="https://mspaintadventures.fandom.com/wiki/Aspect#Heart"
+                                                title="The Heart Aspect" class="work_name">The Heart Aspect</a>
+                                            <div class="maker_name">
+                                                <a href="https://mspaintadventures.fandom.com/wiki/Aspect">Homestuck</a>
+                                            </div>
+                                            <div class="work_price_wrap">
+                                                <span class="work_price">330<i>&nbsp;JPY</i></span>
+                                                <span class="separator">/</span>
+                                                <span class="work_price">$2.20<i>&nbsp;USD</i></span>
+                                            </div>
+                                            <div class="star_rating star_50">(68)</div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
