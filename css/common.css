@@ -509,39 +509,39 @@
     background: #4baef3
 }
 
-.type-section .floorTab-item.type-doujin a:hover {
+.type-section .floorTab-item.type-home a:hover {
     color: #4baef3
 }
 
-.type-section .floorTab-item.type-doujin.is-active a {
+.type-section .floorTab-item.type-home.is-active a {
     background: #4baef3
 }
 
-.type-section .floorTab-item.type-doujin.is-active::after {
+.type-section .floorTab-item.type-home.is-active::after {
     background: #4baef3
 }
 
-.type-section .floorTab-item.type-com a:hover {
-    color: #f34b9f
+.type-section .floorTab-item.type-portfolio a:hover {
+    color: #ffa500
 }
 
-.type-section .floorTab-item.type-com.is-active a {
-    background: #f34b9f
+.type-section .floorTab-item.type-portfolio.is-active a {
+    background: #ffa500
 }
 
-.type-section .floorTab-item.type-com.is-active::after {
-    background: #f34b9f
+.type-section .floorTab-item.type-portfolio.is-active::after {
+    background: #ffa500
 }
 
-.type-section .floorTab-item.type-ebook a:hover {
+.type-section .floorTab-item.type-tools a:hover {
     color: #4ec04e
 }
 
-.type-section .floorTab-item.type-ebook.is-active a {
+.type-section .floorTab-item.type-tools.is-active a {
     background: #4ec04e
 }
 
-.type-section .floorTab-item.type-ebook.is-active::after {
+.type-section .floorTab-item.type-tools.is-active::after {
     background: #4ec04e
 }
 
@@ -843,11 +843,12 @@
     color: #777
 }
 
+/* Articles */
 .recommend_work_item {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 160px;
+    width: 180px;
     height: 100%;
     margin: 0 auto;
     box-sizing: border-box;
