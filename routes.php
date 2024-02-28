@@ -10,7 +10,7 @@ switch ($route) {
         include './tools.html';
         break;
     case '/portfolio':
-        include '404.html';
+        include './portfolio.html';
         break;
     case '/admin':
         //section 8
@@ -20,9 +20,6 @@ switch ($route) {
         include '404.html';
         break;
     case '/us-conversor':
-        include '404.html';
-        break;
-    case '/random-generator':
         include '404.html';
         break;
     case '/random-generator':

@@ -4,7 +4,11 @@ function toogleHeaderCoreMain(type) {
 
     switch (type) {
         case 'tools':
-            const HeaderCoreMain = document.querySelector('.floorTab-item.type-tools');
+            var HeaderCoreMain = document.querySelector('.floorTab-item.type-tools');
+            HeaderCoreMain.classList.add('is-active');
+            break;
+        case 'portfolio':
+            var HeaderCoreMain = document.querySelector('.floorTab-item.type-portfolio');
             HeaderCoreMain.classList.add('is-active');
             break;
         default:
@@ -15,7 +19,9 @@ function toogleHeaderCoreMain(type) {
 function removeAllActives() {
     const section1 = document.querySelector('.floorTab-item.type-home');
     const section2 = document.querySelector('.floorTab-item.type-tools');
+    const section3 = document.querySelector('.floorTab-item.type-portfolio');
 
     section1.classList.remove('is-active');
     section2.classList.remove('is-active');
+    section3.classList.remove('is-active');
 }

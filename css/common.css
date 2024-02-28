@@ -521,16 +521,16 @@
     background: #4baef3
 }
 
-.type-section .floorTab-item.type-com a:hover {
-    color: #f34b9f
+.type-section .floorTab-item.type-portfolio a:hover {
+    color: #ffa500
 }
 
-.type-section .floorTab-item.type-com.is-active a {
-    background: #f34b9f
+.type-section .floorTab-item.type-portfolio.is-active a {
+    background: #ffa500
 }
 
-.type-section .floorTab-item.type-com.is-active::after {
-    background: #f34b9f
+.type-section .floorTab-item.type-portfolio.is-active::after {
+    background: #ffa500
 }
 
 .type-section .floorTab-item.type-tools a:hover {
