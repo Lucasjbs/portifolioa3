@@ -28,15 +28,25 @@ switch ($route) {
     case '/random-generator':
         include '404.html';
         break;
-    case stristr($route, '/tools/new'):
-        articleRoute();
+    case preg_match('/^\/article\/\d+$/', $route) === 1:
+        articleRoute($route);
         break;
     default:
         include '404.html';
         break;
 }
 
-function articleRoute(): void
+function articleRoute($route): void
 {
-    include './tools.html';
+    switch ($route) {
+        case '/article/1':
+            include './articles/article1.html';
+            break;
+        case '/article/2':
+            include './articles/article2.html';
+            break;
+        default:
+            include '404.html';
+            break;
+    }
 }
