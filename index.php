@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Workbench</title>
-    <link rel="shortcut icon" href="/assets/crafting_table.png">
+    <link rel="shortcut icon" href="/assets/workbench-logo3.png">
 
     <link rel="stylesheet" href="/css/common.css" type="text/css" id="common" />
     <link rel="stylesheet" href="/css/default.css" type="text/css" id="default" />
@@ -25,5 +25,4 @@
     </div>
 
 </body>
-
 </html>

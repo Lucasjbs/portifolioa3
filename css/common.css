@@ -47,7 +47,7 @@
 
 .header_dropdown_nav.type_language .header_dropdown_nav_Link::before {
     background-image: url('../assets/us_flag.svg');
-    width: 14px;
+    width: 16px;
     height: 14px;
 }
 
@@ -184,7 +184,7 @@
 .globalSearchBtn {
     position: relative;
     flex-shrink: 0;
-    background: #f58c00;
+    background: #3f60a0;
     border: none;
     width: 44px;
     height: 36px;
@@ -195,7 +195,7 @@
 .globalSearchBtn::before {
     position: absolute;
     display: block;
-    font-family: "Font Awesome 5 Pro";
+    font-family: "Font Awesome 5";
     content: "\f002";
     font-size: 20px;
     color: #fff;
@@ -215,25 +215,20 @@
     height: 36px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    background: #f6f6f6;
+    background: #adc9c6;
     font-size: 12px;
 }
 
 .globalNav-item.type-register a {
-    background-position: -334px 8px
-}
-
-.globalNav-item a {
-    display: block;
-    text-align: center;
-    background: url("../assets/global-icons.png") no-repeat top left;
-    background-size: 840px 26px;
-    width: 60px;
-    height: 54px
+    background-position: -165px 8px
 }
 
 .globalNav-item.type-login a {
     background-position: -390px 8px
+}
+
+.globalNav-item.type-logout a {
+    background-position: -730px 8px
 }
 
 .globalNav-item.type-guide a {
@@ -242,6 +237,15 @@
 
 .globalNav-item.type-favorite a {
     background-position: 0 8px
+}
+
+.globalNav-item a {
+    display: block;
+    text-align: center;
+    background: url("../assets/global-icons2.png") no-repeat top left;
+    background-size: 840px 26px;
+    width: 60px;
+    height: 54px
 }
 
 .l-header i {
@@ -382,10 +386,10 @@
 .dropdown_list .menu_list_item>a::after {
     margin-left: auto;
     color: #ccc;
-    font-family: "Font Awesome 5 Pro";
+    font-family: "fontello";
     font-weight: 200;
     font-size: 20px;
-    content: "\f105"
+    content: "\e802"
 }
 
 .dropdown_list .menu_list_item>a:hover {
@@ -415,7 +419,7 @@
 }
 
 .globalSearchBtn:hover {
-    background: #fda228
+    background: #6488a0
 }
 
 .detailedSearch a:hover {
@@ -497,18 +501,6 @@
     color: #fff !important
 }
 
-.type-section .floorTab-item.type-aix a:hover {
-    color: #4baef3
-}
-
-.type-section .floorTab-item.type-aix.is-active a {
-    background: #4baef3
-}
-
-.type-section .floorTab-item.type-aix.is-active::after {
-    background: #4baef3
-}
-
 .type-section .floorTab-item.type-home a:hover {
     color: #4baef3
 }
@@ -519,18 +511,6 @@
 
 .type-section .floorTab-item.type-home.is-active::after {
     background: #4baef3
-}
-
-.type-section .floorTab-item.type-portfolio a:hover {
-    color: #ffa500
-}
-
-.type-section .floorTab-item.type-portfolio.is-active a {
-    background: #ffa500
-}
-
-.type-section .floorTab-item.type-portfolio.is-active::after {
-    background: #ffa500
 }
 
 .type-section .floorTab-item.type-tools a:hover {
@@ -545,52 +525,52 @@
     background: #4ec04e
 }
 
-.type-section .floorTab-item.type-app a:hover {
+.type-section .floorTab-item.type-portfolio a:hover {
+    color: #ffa500
+}
+
+.type-section .floorTab-item.type-portfolio.is-active a {
+    background: #ffa500
+}
+
+.type-section .floorTab-item.type-portfolio.is-active::after {
+    background: #ffa500
+}
+
+.type-section .floorTab-item.type-apps a:hover {
     color: #a87ed6
 }
 
-.type-section .floorTab-item.type-app.is-active a {
+.type-section .floorTab-item.type-apps.is-active a {
     background: #a87ed6
 }
 
-.type-section .floorTab-item.type-app.is-active::after {
+.type-section .floorTab-item.type-apps.is-active::after {
     background: #a87ed6
 }
 
-.floorTab-item.type-tool a:hover {
+.floorTab-item.type-add a:hover {
     color: #6f6358
 }
 
-.floorTab-item.type-tool.is-active a {
+.floorTab-item.type-add.is-active a {
     background: #6f6358
 }
 
-.floorTab-item.type-tool.is-active::after {
+.floorTab-item.type-add.is-active::after {
     background: #6f6358
 }
 
-.floorTab-item.type-nijiyome a:hover {
-    color: #f25d90
+.floorTab-item.type-admin a:hover {
+    color: #000
 }
 
-.floorTab-item.type-nijiyome.is-active a {
-    background: #f25d90
+.floorTab-item.type-admin.is-active a {
+    background: #000
 }
 
-.floorTab-item.type-nijiyome.is-active::after {
-    background: #f25d90
-}
-
-.floorTab-item.type-asmr a:hover {
-    color: #ffa01c
-}
-
-.floorTab-item.type-asmr.is-active a {
-    background: #ffa01c
-}
-
-.floorTab-item.type-asmr.is-active::after {
-    background: #ffa01c
+.floorTab-item.type-admin.is-active::after {
+    background: #000
 }
 
 .floorTab-item:last-child a::after {
@@ -642,26 +622,6 @@
     font-size: 12px
 }
 
-.floorNavLink-item.type-female a {
-    border: 1px solid #f198af;
-    color: #ea7b98
-}
-
-.floorNavLink-item.type-female a:hover {
-    background: #f198af;
-    color: #fff
-}
-
-.floorNavLink-item.type-general a {
-    border: 1px solid #82ca28;
-    color: #64b400
-}
-
-.floorNavLink-item.type-general a:hover {
-    background: #82ca28;
-    color: #fff
-}
-
 .floorSubNav {
     display: flex;
     padding: 0 15px;
@@ -695,40 +655,72 @@
     color: #536280;
     font-size: 18px;
     line-height: 1;
-    font-family: "Font Awesome 5 Pro";
+    font-family: "fontello";
     font-weight: 300
 }
 
-.headerNav .headerNav-item .voice::before {
-    content: "\f025"
+.headerNav .headerNav-item .home::before {
+    content: "\e803"
 }
 
-.headerNav .headerNav-item .game::before {
-    content: "\f11b"
+.headerNav .headerNav-item .home:hover {
+    color: #506ff8;
 }
 
-.headerNav .headerNav-item .manga::before {
-    content: "\f518"
+.headerNav .headerNav-item .date::before {
+    content: "\e801"
 }
 
-.headerNav .headerNav-item .illust::before {
-    content: "\f5ad"
+.headerNav .headerNav-item .date:hover {
+    color: #506ff8;
 }
 
-.headerNav .headerNav-item .video::before {
-    content: "\f3a0"
+.headerNav .headerNav-item .luck::before {
+    content: "\f16e"
 }
 
-.headerNav .headerNav-item .ranking::before {
-    content: "\f2eb"
+.headerNav .headerNav-item .luck:hover {
+    color: #506ff8;
 }
 
-.headerNav .headerNav-item .calendar::before {
-    content: "\f073"
+.headerNav .headerNav-item .measure::before {
+    content: "\f0e4"
 }
 
-.headerNav .headerNav-item .announce::before {
-    content: "\f0a1"
+.headerNav .headerNav-item .measure:hover {
+    color: #506ff8;
+}
+
+.headerNav .headerNav-item .word::before {
+    content: "\f11c"
+}
+
+.headerNav .headerNav-item .word:hover {
+    color: #506ff8;
+}
+
+.headerNav .headerNav-item .compass::before {
+    content: "\f14e"
+}
+
+.headerNav .headerNav-item .compass:hover {
+    color: #506ff8;
+}
+
+.headerNav .headerNav-item .block::before {
+    content: "\f1b2"
+}
+
+.headerNav .headerNav-item .block:hover {
+    color: #506ff8;
+}
+
+.headerNav .headerNav-item .sign::before {
+    content: "\f277"
+}
+
+.headerNav .headerNav-item .sign:hover {
+    color: #506ff8;
 }
 
 .floorTab-item.is-active::before,
@@ -969,16 +961,20 @@ div.title_01 h3 {
     font-size: 14px;
     font-weight: bold;
     padding: 0 0 0 22px;
-    background: url(../assets/icon_title_arrow.gif) left center no-repeat
+    background: url(../assets/arrow-block-3.png) left center no-repeat
 }
 
 div.title_01 h2 {
     font-size: 18px
 }
 
+ul.floorTab.type-section {
+    justify-content: center;
+}
 
-
-
+.logo img{
+    border-radius: 10%;
+}
 
 
 
