@@ -13,8 +13,7 @@ switch ($route) {
         include './portfolio.html';
         break;
     case '/admin':
-        //section 8
-        include '404.html';
+        include './admin.html';
         break;
     case '/timer-tools':
         include '404.html';
@@ -27,6 +26,9 @@ switch ($route) {
         break;
     case preg_match('/^\/article\/\d+$/', $route) === 1:
         articleRoute($route);
+        break;
+    case '/tool/1':
+        include './tool_list/tool1.html';
         break;
     default:
         include '404.html';
