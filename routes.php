@@ -30,6 +30,9 @@ switch ($route) {
     case '/tool/1':
         include './tool_list/tool1.html';
         break;
+    case '/registration':
+        include './registration.html';
+        break;
     default:
         include '404.html';
         break;
