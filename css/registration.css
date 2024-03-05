@@ -1,0 +1,68 @@
+div.title_02 h2 {
+    color: #53807c;
+    font-size: 1.8em;
+    font-weight: bold;
+    padding: 0 0 16px 0;
+}
+
+.sign-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sign-up p {
+    font-size: 1.2em;
+    padding: 0 0 16px 0;
+    color: #535480;
+}
+
+.form-group .form-control {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    width: 30rem;
+}
+
+.form-group .form-control label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.0em;
+}
+
+.form-group .form-control input {
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.6rem;
+    border: 0.2rem solid #535480;
+}
+
+.button-column .form-group {
+    text-align: center;
+}
+
+.form-group button {
+    width: 50%;
+    height: 2.2rem;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-group button:hover {
+    opacity: 0.7;
+}
+
+#successMessage {
+    display: none;
+    font-size: 10px;
+    color: blue;
+    text-align: center;
+  }
