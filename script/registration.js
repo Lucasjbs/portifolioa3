@@ -21,6 +21,8 @@ function sendRegistrationInputs() {
     const emailInput = document.getElementById("signupEmail").value;
     const passwordInput = document.getElementById("signupPassword").value;
 
+    // Add client side validation here
+
     const requestData = {
         "action": "store",
         "name": nameInput,
