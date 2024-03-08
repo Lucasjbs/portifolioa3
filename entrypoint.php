@@ -12,16 +12,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'store') {
     try {
         $passwordValidator = new PasswordValidation($_POST['password']);
         $password = $passwordValidator->validatePassword();
-        
+
         $getUsersList = new UserCreateAction(
             $newRequest,
             $_POST['name'],
             $_POST['email'],
-            $_POST['password']
+            $password
         );
         $getUsersList();
-    } catch (\Exception $e) {
-        //backend log - prevent hacking
+    } catch (Exception $e) {
+        http_response_code(400);
+        $return = ['message' => "Invalid Data"];
+        if($e->getMessage() == "Email already exists!"){
+            $return = ['message' => $e->getMessage()];
+        }
+        echo (json_encode($return));
     }
-
 }

@@ -2,6 +2,7 @@
 
 namespace Portifolio\Workbench\Action;
 
+use Portifolio\Workbench\Model\Password;
 use Portifolio\Workbench\Model\User;
 use Portifolio\Workbench\Validation\UserValidation;
 
@@ -14,18 +15,18 @@ class UserCreateAction
         Request $request,
         string $name,
         string $email,
-        string $password,
+        Password $password,
     ) {
         $this->user = new User($name, $email, $password);
         $this->request = $request;
 
-        $validator = new UserValidation($this->user, $this->request);
-        $validator->validate();
+        $userValidator = new UserValidation($this->user, $this->request);
+        $userValidator->validate();
     }
 
     function __invoke()
     {
         $this->user->createNewUser();
-        return "Status: success";
+        return http_response_code(201);
     }
 }

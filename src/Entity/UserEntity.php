@@ -18,7 +18,7 @@ class UserEntity extends Connection
         $sql = "INSERT INTO $this->tablename (name, email, password) VALUES ('$name', '$email', '$password')";
 
         try {
-            $this->conn->query($sql);
+            // $this->conn->query($sql);
             return "Status: success";
         } catch (Exception $e) {
             $exception = $e->getMessage();
