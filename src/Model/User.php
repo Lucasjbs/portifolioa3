@@ -25,7 +25,6 @@ class User
 
     public function createNewUser(): void
     {
-        // Check if email exists
         $this->checkDuplicatedEmail();
 
         $this->userEntity->createNewUser(
@@ -45,9 +44,13 @@ class User
         return $this->email;
     }
 
-    private function checkDuplicatedEmail(): string
+    private function checkDuplicatedEmail(): void
     {
-        throw new DuplicatedEmailException("Email already exists!");
-        return $this->email;
+        $emailList = $this->userEntity->getEmailList();
+        foreach ($emailList as $email) {
+            if ($this->email == $email['email']) {
+                throw new DuplicatedEmailException("Email already exists!");
+            }
+        }
     }
 }

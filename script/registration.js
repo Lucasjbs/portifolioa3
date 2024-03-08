@@ -12,8 +12,13 @@ function ajaxPostRequest(requestData) {
         },
         error: function (xhr, status, error) {
             httpRequestMessage = JSON.parse(xhr.responseText);
-            console.log(httpRequestMessage.message);
+            if (httpRequestMessage.message == "Email already exists!") {
+                const nameErrorMessage = document.getElementById('signupEmailError');
+                nameErrorMessage.innerHTML = "*email already exists!";
+                return "Email already exists!";
+            }
             alert("Unable to complete request!");
+            return "Invalid name!";
         }
     });
 }

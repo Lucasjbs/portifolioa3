@@ -9,15 +9,16 @@ class Password
 
     public function __construct(string $password, int $status = self::RAW)
     {
-        if($status == self::RAW){
+        if ($status == self::RAW) {
             $this->password = $this->passwordEncryptor($password);
         }
     }
-    
-    // public function passwordDecryptor(): string
-    // {
-    //     return $this->password;
-    // }
+
+    public function passwordVerifier(string $passwordRaw, string $passwordHash): bool
+    {
+        $isPasswordCorrect = password_verify($passwordRaw, $passwordHash);
+        return $isPasswordCorrect;
+    }
 
     public function getSafePassword(): string
     {
@@ -26,6 +27,7 @@ class Password
 
     private function passwordEncryptor(string $password): string
     {
-        return $password;
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        return $hashedPassword;
     }
 }
