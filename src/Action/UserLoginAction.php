@@ -26,12 +26,6 @@ class UserLoginAction
     function __invoke()
     {
         if ($this->user->checkLoginCredentials()) {
-            // create user $session credentials
-            // session_start();
-            // $isLoggedIn = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"];
-            // $sessionToken = bin2hex(random_bytes(32));
-    
-            // $_SESSION["session_token"] = $sessionToken;
 
             session_start();
             $_SESSION["id"] = $this->user->getId();
