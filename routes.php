@@ -1,19 +1,20 @@
 <?php
-// $route = $_GET['route'] ?? '/';
-$route = $_SERVER['REQUEST_URI'] ?? '/';
+$route = $_SERVER['REQUEST_URI'];
+$route = preg_replace("/\/(en|br)(?!([a-z]))/", "", $route);
+$route = $route ? $route : '/';
 
 switch ($route) {
     case '/':
-        include './articles.html';
+        include './pages/articles.html';
         break;
     case '/tools':
-        include './tools.html';
+        include './pages/tools.html';
         break;
     case '/portfolio':
-        include './portfolio.html';
+        include './pages/portfolio.html';
         break;
     case '/admin':
-        include './admin.html';
+        include './pages/admin.html';
         break;
     case '/timer-tools':
         include '404.html';
@@ -28,13 +29,13 @@ switch ($route) {
         articleRoute($route);
         break;
     case '/tool/1':
-        include './tool_list/tool1.html';
+        include './pages/tool_list/tool1.html';
         break;
     case '/registration':
-        include './registration.html';
+        include './pages/registration.html';
         break;
     case '/profile':
-        include './profile.html';
+        include './pages/profile.html';
         break;
     default:
         include '404.html';
@@ -45,10 +46,10 @@ function articleRoute($route): void
 {
     switch ($route) {
         case '/article/1':
-            include './articles/article1.html';
+            include './pages/articles/article1.html';
             break;
         case '/article/2':
-            include './articles/article2.html';
+            include './pages/articles/article2.html';
             break;
         default:
             include '404.html';

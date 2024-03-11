@@ -45,8 +45,14 @@
     color: #333
 }
 
-.header_dropdown_nav.type_language .header_dropdown_nav_Link::before {
+.header_dropdown_nav.type_language.type_english .header_dropdown_nav_Link::before {
     background-image: url('../assets/us_flag.svg');
+    width: 16px;
+    height: 14px;
+}
+
+.header_dropdown_nav.type_language.type_portuguese .header_dropdown_nav_Link::before {
+    background-image: url('../assets/br_flag.svg');
     width: 16px;
     height: 14px;
 }
