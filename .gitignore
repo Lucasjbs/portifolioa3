@@ -1,2 +1,4 @@
 /css/sketch
 /dev_assets
+/src/Entity/ConnectionParameters.php
+/session_test
