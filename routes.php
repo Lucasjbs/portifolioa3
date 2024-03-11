@@ -33,6 +33,9 @@ switch ($route) {
     case '/registration':
         include './registration.html';
         break;
+    case '/profile':
+        include './profile.html';
+        break;
     default:
         include '404.html';
         break;

@@ -13,9 +13,22 @@ class UserEntity extends Connection
         parent::__construct();
     }
 
-    public function getEmailList(): array
+    public function createNewUser(string $name, string $email, string $password): string
     {
-        $sql = "SELECT email FROM $this->tablename";
+        // $sql = "INSERT INTO $this->tablename (name, email, password) VALUES ('$name', '$email', '$password')";
+
+        try {
+            // $this->conn->query($sql);
+            return "Status: success";
+        } catch (Exception $e) {
+            $exception = $e->getMessage();
+        }
+        return "Status: error";
+    }
+
+    public function getUserList(): array
+    {
+        $sql = "SELECT id, email FROM $this->tablename";
 
         $emailList = [];
         try {
@@ -27,16 +40,18 @@ class UserEntity extends Connection
         return $emailList;
     }
 
-    public function createNewUser(string $name, string $email, string $password): string
+    public function getPasswordById(int $id): string
     {
-        $sql = "INSERT INTO $this->tablename (name, email, password) VALUES ('$name', '$email', '$password')";
+        $sql = "SELECT password FROM $this->tablename WHERE id = $id";
 
+        $password = "";
         try {
-            $this->conn->query($sql);
-            return "Status: success";
+            $result = $this->conn->query($sql);
+            $result = $result->fetch_assoc();
+            $password = $result['password'];
         } catch (Exception $e) {
             $exception = $e->getMessage();
         }
-        return "Status: error";
+        return $password;
     }
 }

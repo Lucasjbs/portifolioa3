@@ -4,9 +4,11 @@ namespace Portifolio\Workbench\Model;
 
 use Portifolio\Workbench\Entity\UserEntity;
 use Portifolio\Workbench\Exception\DuplicatedEmailException;
+use Portifolio\Workbench\Exception\UserLoginException;
 
 class User
 {
+    private int $id;
     private string $name;
     private string $email;
     private Password $password;
@@ -25,13 +27,35 @@ class User
 
     public function createNewUser(): void
     {
-        $this->checkDuplicatedEmail();
+        // if ($this->emailExists()) {
+        //     throw new DuplicatedEmailException("Email already exists!");
+        // }
 
         $this->userEntity->createNewUser(
             $this->name,
             $this->email,
             $this->password->getSafePassword()
         );
+    }
+
+    public function checkLoginCredentials(): bool
+    {
+        if (!$this->emailExists()) {
+            throw new UserLoginException("Email does not exists!");
+        }
+
+        $passwordDb = $this->userEntity->getPasswordById($this->id);
+
+        if (!$this->password->passwordVerifier($passwordDb)) {
+            throw new UserLoginException("Password is wrong!");
+        }
+
+        return true;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function getName(): string
@@ -44,13 +68,15 @@ class User
         return $this->email;
     }
 
-    private function checkDuplicatedEmail(): void
+    private function emailExists(): bool
     {
-        $emailList = $this->userEntity->getEmailList();
-        foreach ($emailList as $email) {
-            if ($this->email == $email['email']) {
-                throw new DuplicatedEmailException("Email already exists!");
+        $userDataList = $this->userEntity->getUserList();
+        foreach ($userDataList as $data) {
+            if ($this->email == $data['email']) {
+                $this->id = $data['id'];
+                return true;
             }
         }
+        return false;
     }
 }

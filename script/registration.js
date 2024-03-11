@@ -6,9 +6,7 @@ function ajaxPostRequest(requestData) {
         async: true,
         data: requestData,
         success: function (response) {
-            // create login section
-            // window.location.href = "/";
-            alert("Sign up complete!");
+            checkLoginPostRegistration(requestData.email, requestData.password);
         },
         error: function (xhr, status, error) {
             httpRequestMessage = JSON.parse(xhr.responseText);
