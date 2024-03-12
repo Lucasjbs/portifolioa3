@@ -2,9 +2,7 @@
 
 namespace Portifolio\Workbench\Entity;
 
-use Exception;
 use mysqli_sql_exception;
-use Portifolio\Workbench\Action\Response;
 
 class UserEntity extends Connection
 {
@@ -15,19 +13,15 @@ class UserEntity extends Connection
         parent::__construct();
     }
 
-    public function createNewUser(string $name, string $email, string $password): Response
+    public function createNewUser(string $name, string $email, string $password): void
     {
-        $response = new Response();
-
         // $sql = "INSERT INTO $this->tablename (name, email, password) VALUES ('$name', '$email', '$password')";
 
         try {
             // $this->conn->query($sql);
-            $response->modifyResponseData(201, "success", []);
         } catch (mysqli_sql_exception $e) {
-            $response->modifyResponseData(400, $e->getMessage(), ['mysqli_code' => $e->getCode()]);
+            $this->mysqliResponse->modifyResponseData(400, $e->getMessage(), ['mysqli_code' => $e->getCode()]);
         }
-        return $response;
     }
 
     public function getUserList(): array
@@ -38,8 +32,8 @@ class UserEntity extends Connection
         try {
             $result = $this->conn->query($sql);
             $emailList = $result->fetch_all(MYSQLI_ASSOC);
-        } catch (Exception $e) {
-            $exception = $e->getMessage();
+        } catch (mysqli_sql_exception $e) {
+            $this->mysqliResponse->modifyResponseData(400, $e->getMessage(), ['mysqli_code' => $e->getCode()]);
         }
         return $emailList;
     }
@@ -53,8 +47,8 @@ class UserEntity extends Connection
             $result = $this->conn->query($sql);
             $result = $result->fetch_assoc();
             $password = $result['password'];
-        } catch (Exception $e) {
-            $exception = $e->getMessage();
+        } catch (mysqli_sql_exception $e) {
+            $this->mysqliResponse->modifyResponseData(400, $e->getMessage(), ['mysqli_code' => $e->getCode()]);
         }
         return $password;
     }

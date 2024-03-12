@@ -1,4 +1,6 @@
 
+// Check if user is logged before entering on profile (Entrypoint):
+
 const requestData = {
     "action": "profile"
 };
