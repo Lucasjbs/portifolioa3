@@ -34,15 +34,15 @@ class UserValidation
     private function nameValidator(string $name): void
     {
         if (($this->isEditRoute() || $this->isCreateRoute()) && strlen($name) < 4) {
-            throw new InvalidNameException("Too few characters for name!");
+            throw new InvalidNameException("Name length must be between 4 and 45 characters!");
         }
 
         if (strlen($name) > 45) {
-            throw new InvalidNameException("Name much characters for name!");
+            throw new InvalidNameException("Name length must be between 4 and 45 characters!");
         }
 
         if (preg_match('/[$#\/@:;\-<>\(\)\[\]\{\}]/', $name)) {
-            throw new InvalidNameException("Invalid character was used for name!");
+            throw new InvalidNameException("Name cannot contain special characters!");
         }
 
         return;
@@ -55,7 +55,7 @@ class UserValidation
         }
 
         if (!preg_match('/^[A-Za-z0-9]+@(gmail\.com|hotmail\.com)$/', $email)) {
-            throw new InvalidEmailException("Invalid Email format!");
+            throw new InvalidEmailException("Email must be a valid Gmail or Hotmail!");
         }
 
         return;

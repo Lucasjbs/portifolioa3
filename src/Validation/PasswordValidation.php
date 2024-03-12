@@ -17,7 +17,7 @@ class PasswordValidation
     public function validatePassword(): void
     {
         if (strlen($this->password) < 8 || strlen($this->password) > 40) {
-            throw new InvalidPasswordException("Password lenght is invalid!");
+            throw new InvalidPasswordException("Password length must be between 8 and 40 characters!");
         }
 
         if (preg_match('/[$#\/@:;\-<>\(\)\[\]\{\}]/', $this->password)) {

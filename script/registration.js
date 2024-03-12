@@ -1,4 +1,23 @@
 
+function responseErrorHandler(response) {
+    const statusCode = response.data.error_index;
+    if (statusCode === 1000) {
+        const passwordErrorMessage = document.getElementById('signupPasswordError');
+        passwordErrorMessage.innerHTML = "* " + response.message;
+    }
+    else if (statusCode === 1001) {
+        const nameErrorMessage = document.getElementById('signupNameError');
+        nameErrorMessage.innerHTML = "* " + response.message;
+    }
+    else if (statusCode === 1002 || statusCode === 1003) {
+        const emailErrorMessage = document.getElementById('signupEmailError');
+        emailErrorMessage.innerHTML = "* " + response.message;
+    }
+    else{
+        alert("An unexpected error has occurred, check your credentials or try again later!");
+    }
+}
+
 function ajaxPostRequest(requestData) {
     $.ajax({
         type: 'POST',
@@ -10,13 +29,7 @@ function ajaxPostRequest(requestData) {
         },
         error: function (xhr, status, error) {
             httpRequestMessage = JSON.parse(xhr.responseText);
-            if (httpRequestMessage.message == "Email already exists!") {
-                const nameErrorMessage = document.getElementById('signupEmailError');
-                nameErrorMessage.innerHTML = "*email already exists!";
-                return "Email already exists!";
-            }
-            alert("Unable to complete request!");
-            return "Invalid name!";
+            responseErrorHandler(httpRequestMessage);
         }
     });
 }
@@ -30,31 +43,31 @@ function clientSideValidation(requestData) {
 
     if (name.length < 4 || name.length > 45) {
         const nameErrorMessage = document.getElementById('signupNameError');
-        nameErrorMessage.innerHTML = "*name length must be between 4 and 45 characters!";
+        nameErrorMessage.innerHTML = "* name length must be between 4 and 45 characters!";
         return "Invalid name!";
     }
 
     if (specialChars.test(name)) {
         const nameErrorMessage = document.getElementById('signupNameError');
-        nameErrorMessage.innerHTML = "*name cannot contain special characters!";
+        nameErrorMessage.innerHTML = "* name cannot contain special characters!";
         return "Invalid name!";
     }
 
     if (!emailChars.test(email)) {
         const emailErrorMessage = document.getElementById('signupEmailError');
-        emailErrorMessage.innerHTML = "*email must be Gmail or Hotmail!";
+        emailErrorMessage.innerHTML = "* email must be a valid Gmail or Hotmail!";
         return "Invalid email!";
     }
 
     if (password.length < 8 || password.length > 40) {
         const passwordErrorMessage = document.getElementById('signupPasswordError');
-        passwordErrorMessage.innerHTML = "*password length must be between 8 and 40 characters!";
+        passwordErrorMessage.innerHTML = "* password length must be between 8 and 40 characters!";
         return "Invalid password!";
     }
 
     if (specialChars.test(password)) {
         const passwordErrorMessage = document.getElementById('signupPasswordError');
-        passwordErrorMessage.innerHTML = "*password cannot contain special characters!";
+        passwordErrorMessage.innerHTML = "* password cannot contain special characters!";
         return "Invalid password!";
     }
 

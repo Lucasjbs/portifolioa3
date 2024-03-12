@@ -10,6 +10,6 @@ class DuplicatedEmailException extends Exception
 
     public function __construct()
     {
-        parent::__construct("Email already exists!", 1003);
+        parent::__construct("This email already exists!", 1003);
     }
 }

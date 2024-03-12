@@ -32,27 +32,28 @@ class User
         //     throw new DuplicatedEmailException();
         // }
 
-        $response = $this->userEntity->createNewUser(
+        $this->userEntity->createNewUser(
             $this->name,
             $this->email,
             $this->password->getSafePassword()
         );
 
-        if ($response->getCode() == 400 && $response->getData()['mysqli_code']) {
-            throw new UserEntityException("MySql error!");
-        }
+        $this->catchMysqlException();
     }
 
     public function checkLoginCredentials(): bool
     {
-        if (!$this->emailExists()) {
-            throw new UserLoginException("Email does not exists!");
+        $isEmailValid = $this->checkUserEmailAndSetIdIfValid();
+
+        if (!$isEmailValid) {
+            throw new UserLoginException("This email doesn't exist!");
         }
 
         $passwordDb = $this->userEntity->getPasswordById($this->id);
+        $this->catchMysqlException();
 
         if (!$this->password->passwordVerifier($passwordDb)) {
-            throw new UserLoginException("Password is wrong!");
+            throw new UserLoginException("Your password is wrong!");
         }
         return true;
     }
@@ -72,9 +73,11 @@ class User
         return $this->email;
     }
 
-    private function emailExists(): bool
+    private function checkUserEmailAndSetIdIfValid(): bool
     {
         $userDataList = $this->userEntity->getUserList();
+        $this->catchMysqlException();
+
         foreach ($userDataList as $data) {
             if ($this->email == $data['email']) {
                 $this->id = $data['id'];
@@ -82,5 +85,13 @@ class User
             }
         }
         return false;
+    }
+
+    private function catchMysqlException(): void
+    {
+        $response = $this->userEntity->getMysqliResponse();
+        if ($response->getCode() == 400 && $response->getData()['mysqli_code']) {
+            throw new UserEntityException("MySql error!");
+        }
     }
 }
