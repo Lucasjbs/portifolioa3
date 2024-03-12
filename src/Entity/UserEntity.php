@@ -3,6 +3,8 @@
 namespace Portifolio\Workbench\Entity;
 
 use Exception;
+use mysqli_sql_exception;
+use Portifolio\Workbench\Action\Response;
 
 class UserEntity extends Connection
 {
@@ -13,17 +15,19 @@ class UserEntity extends Connection
         parent::__construct();
     }
 
-    public function createNewUser(string $name, string $email, string $password): string
+    public function createNewUser(string $name, string $email, string $password): Response
     {
+        $response = new Response();
+
         // $sql = "INSERT INTO $this->tablename (name, email, password) VALUES ('$name', '$email', '$password')";
 
         try {
             // $this->conn->query($sql);
-            return "Status: success";
-        } catch (Exception $e) {
-            $exception = $e->getMessage();
+            $response->modifyResponseData(201, "success", []);
+        } catch (mysqli_sql_exception $e) {
+            $response->modifyResponseData(400, $e->getMessage(), ['mysqli_code' => $e->getCode()]);
         }
-        return "Status: error";
+        return $response;
     }
 
     public function getUserList(): array
