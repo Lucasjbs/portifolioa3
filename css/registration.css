@@ -60,13 +60,6 @@ div.title_02 h2 {
     opacity: 0.7;
 }
 
-#successMessage {
-    display: none;
-    font-size: 10px;
-    color: blue;
-    text-align: center;
-}
-
 .error-message{
     font-size: 12px;
     color: red;

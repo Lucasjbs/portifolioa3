@@ -8,8 +8,8 @@ class DuplicatedEmailException extends Exception
 {
     public const CODE = 1003;
 
-    public function __construct(string $message)
+    public function __construct()
     {
-        parent::__construct($message, 1003);
+        parent::__construct("Email already exists!", 1003);
     }
 }

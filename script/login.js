@@ -5,8 +5,7 @@ function ajaxLoginRequest(requestData) {
         async: true,
         data: requestData,
         success: function (response) {
-            // window.location.href = "/";
-            alert("Sign up complete!");
+            window.location.href = "/";
         },
         error: function (xhr, status, error) {
             alert("Unable to complete login!");
