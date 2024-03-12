@@ -15,10 +15,10 @@ class UserEntity extends Connection
 
     public function createNewUser(string $name, string $email, string $password): void
     {
-        // $sql = "INSERT INTO $this->tablename (name, email, password) VALUES ('$name', '$email', '$password')";
+        $sql = "INSERT INTO $this->tablename (name, email, password) VALUES ('$name', '$email', '$password')";
 
         try {
-            // $this->conn->query($sql);
+            $this->conn->query($sql);
         } catch (mysqli_sql_exception $e) {
             $this->mysqliResponse->modifyResponseData(400, $e->getMessage(), ['mysqli_code' => $e->getCode()]);
         }

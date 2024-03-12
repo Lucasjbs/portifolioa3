@@ -28,9 +28,10 @@ class User
 
     public function createNewUser(): void
     {
-        // if ($this->emailExists()) {
-        //     throw new DuplicatedEmailException();
-        // }
+        $doEmailExists = $this->checkUserEmailAndSetIdIfExists();
+        if ($doEmailExists) {
+            throw new DuplicatedEmailException();
+        }
 
         $this->userEntity->createNewUser(
             $this->name,
@@ -43,9 +44,9 @@ class User
 
     public function checkLoginCredentials(): bool
     {
-        $isEmailValid = $this->checkUserEmailAndSetIdIfValid();
+        $doEmailExists = $this->checkUserEmailAndSetIdIfExists();
 
-        if (!$isEmailValid) {
+        if (!$doEmailExists) {
             throw new UserLoginException("This email doesn't exist!");
         }
 
@@ -73,7 +74,7 @@ class User
         return $this->email;
     }
 
-    private function checkUserEmailAndSetIdIfValid(): bool
+    private function checkUserEmailAndSetIdIfExists(): bool
     {
         $userDataList = $this->userEntity->getUserList();
         $this->catchMysqlException();
