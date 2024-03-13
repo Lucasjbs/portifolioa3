@@ -9,17 +9,19 @@
             <div data-section_name="top_translation_new_products">
 
                 <div class="title_01">
-                    <h2>PROFILE</h2>
+                    <h2>User Profile: </h2>
                 </div>
-                <p>USER DATA: </p>
-                <div id="userId"></div>
-                <script type="text/javascript" src="/script/profile.js"></script>
-                
-                <button type="button" onclick="logOut()">Log Out</button>
 
-
+                <h3 id="userName">Your name: </h3>
+                <h3 id="userEmail">Your email: </h3>
+                <!-- <script type="text/javascript" src="/script/profile.js"></script> -->
+                <!-- <button type="button" onclick="logOut()">Log Out</button> -->
 
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    checkSessionForProfile();
+</script>

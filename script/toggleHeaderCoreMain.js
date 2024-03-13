@@ -29,4 +29,5 @@ function removeAllActives() {
     section1.classList.remove('is-active');
     section2.classList.remove('is-active');
     section3.classList.remove('is-active');
+    section8.classList.remove('is-active');
 }

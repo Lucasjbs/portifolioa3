@@ -77,7 +77,7 @@
                     <li class="globalNav-item type-login">
                         <a href="/login"><i>Log in</i></a>
                     </li>
-                    <li class="globalNav-item type-logout" v-cloak>
+                    <li class="globalNav-item type-logout">
                         <a href="/logout"><i>Log out</i></a>
                     </li>
                     <li class="globalNav-item type-favorite" v-cloak>
@@ -149,4 +149,6 @@
 </div>
 
 <script type="text/javascript" src="/lang/header-lang.js"></script>
-<script type="text/javascript" src="/script/sessionWarden.js"></script>
+<script type="text/javascript" src="/script/clientSessionWarden.js">
+    checkSessionForHeader();
+</script>

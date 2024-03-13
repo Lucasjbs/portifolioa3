@@ -5,6 +5,8 @@ require 'autoload.php';
 use Portifolio\Workbench\Action\Request;
 use Portifolio\Workbench\Action\UserCreateAction;
 use Portifolio\Workbench\Action\UserLoginAction;
+use Portifolio\Workbench\Action\UserSessionAction;
+use Portifolio\Workbench\Action\UserSessionDataAction;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'store') {
     $action = new UserCreateAction(
@@ -23,12 +25,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'login') {
     );
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['action'] === 'profile') {
-    session_start();
-    $id = $_SESSION['id'];
-    http_response_code(201);
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['action'] === 'sessionData') {
+    $action = new UserSessionAction(
+        new Request('POST', 'sessionData', true),
+    );
+    $action->runAction();
+}
 
-    echo $id;
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['action'] === 'sessionCheck') {
+    $action = new UserSessionAction(
+        new Request('POST', 'sessionCheck', true),
+    );
+    $action->runAction(false);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['action'] === 'logout') {
