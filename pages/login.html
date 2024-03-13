@@ -1,26 +1,48 @@
-<section class="form sign-in">
-    <div class="title_02">
-        <h2>Sign In</h2>
-    </div>
+<script>
+    const header = document.getElementById('header');
+    header.remove();
+</script>
+<script type="text/javascript" src="/script/login.js"></script>
 
-    <p>Lorem ipsum dolor sit amet.</p>
-    <form id="login">
-        <div class="form-group">
-            <div class="form-control">
-                <label>email address</label>
-                <input type="email" name="txt-emailLogin" id="emailLogin" autocomplete="username" />
-                <div id="emailLoginError" class="error-message"></div>
+<div id="wrapper">
+    <div id="main">
+        <div id="main_inner">
+            <div data-section_name="top_translation_new_products">
+                <a href="/">&#x2190; Return</a>
+
+                <section class="sign-up">
+                    <div class="title_02">
+                        <h2>Log In</h2>
+                    </div>
+
+                    <p>Log in with your email and password:</p>
+                    <form id="register">
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label>Email Address:
+                                    <input type="email" name="signupEmail" id="signupEmail" autocomplete="new-email" />
+                                </label>
+                                <div id="signupEmailError" class="error-message"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-control">
+                                <label>Password:
+                                    <input type="password" name="signupPassword" id="signupPassword"
+                                        autocomplete="new-password" />
+                                </label>
+                                <div id="signupPasswordError" class="error-message"></div>
+                            </div>
+                        </div>
+                        <div class="button-column">
+                            <div class="form-group">
+                                <button type="button" onclick="checkDataAndMakeLogin()">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
             </div>
         </div>
-        <div class="form-group">
-            <div class="form-control">
-                <label>password</label>
-                <input type="password" name="txt-passLogin" id="passwordLogin" autocomplete="new-password" />
-                <div id="passwordLoginError" class="error-message"></div>
-            </div>
-        </div>
-        <div class="form-group">
-            <button type="submit">sign in</button>
-        </div>
-    </form>
-</section>
+    </div>
+</div>

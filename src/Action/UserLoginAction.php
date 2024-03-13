@@ -35,8 +35,8 @@ class UserLoginAction
         try {
             $this->user->checkLoginCredentials();
 
-            // session_start();
-            // $_SESSION["id"] = $this->user->getId();
+            session_start();
+            $_SESSION["id"] = $this->user->getId();
 
             $this->response->modifyResponseData(201, "success", []);
         } catch (Exception $e) {

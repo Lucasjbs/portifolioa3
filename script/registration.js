@@ -74,7 +74,6 @@ function clientSideValidation(requestData) {
     return "Valid";
 }
 
-
 function sendRegistrationInputs() {
     const nameInput = document.getElementById("signupName").value;
     const emailInput = document.getElementById("signupEmail").value;

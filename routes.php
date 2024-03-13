@@ -34,6 +34,12 @@ switch ($route) {
     case '/registration':
         include './pages/registration.html';
         break;
+    case '/login':
+        include './pages/login.html';
+        break;
+    case '/logout':
+        include './pages/logout.html';
+        break;
     case '/profile':
         include './pages/profile.html';
         break;

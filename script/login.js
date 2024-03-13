@@ -39,15 +39,47 @@ function checkLoginPostRegistration(email, password) {
     ajaxLoginRequest(requestData);
 }
 
-function checkDataAndMakeLogin(email, password) {
-    // const email = getDocById(...)
-    // const password = getDocById(...)
+function clientSideValidation(requestData) {
+    const specialChars = /[@:;\-<>()\[\]{}]/;
+    const emailChars = /@gmail\.com|@hotmail\.com/;
+    const email = requestData['email'];
+    const password = requestData['password'];
 
-    // const requestData = {
-    //     "action": "login",
-    //     "email": email,
-    //     "password": password,
-    // };
+    if (!emailChars.test(email)) {
+        const emailErrorMessage = document.getElementById('signupEmailError');
+        emailErrorMessage.innerHTML = "* email must be a valid Gmail or Hotmail!";
+        return "Invalid email!";
+    }
 
-    // ajaxLoginRequest(requestData);
+    if (password.length < 8 || password.length > 40) {
+        const passwordErrorMessage = document.getElementById('signupPasswordError');
+        passwordErrorMessage.innerHTML = "* password length must be between 8 and 40 characters!";
+        return "Invalid password!";
+    }
+
+    if (specialChars.test(password)) {
+        const passwordErrorMessage = document.getElementById('signupPasswordError');
+        passwordErrorMessage.innerHTML = "* password cannot contain special characters!";
+        return "Invalid password!";
+    }
+
+    return "Valid";
+}
+
+function checkDataAndMakeLogin() {
+    const emailInput = document.getElementById("signupEmail").value;
+    const passwordInput = document.getElementById("signupPassword").value;
+
+    const requestData = {
+        "action": "login",
+        "email": emailInput,
+        "password": passwordInput,
+    };
+
+    const status = clientSideValidation(requestData);
+    if (status != "Valid") {
+        return 0;
+    }
+
+    ajaxLoginRequest(requestData);
 }

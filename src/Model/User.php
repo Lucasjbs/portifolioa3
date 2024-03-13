@@ -4,6 +4,7 @@ namespace Portifolio\Workbench\Model;
 
 use Portifolio\Workbench\Entity\UserEntity;
 use Portifolio\Workbench\Exception\DuplicatedEmailException;
+use Portifolio\Workbench\Exception\InvalidSessionException;
 use Portifolio\Workbench\Exception\UserEntityException;
 use Portifolio\Workbench\Exception\UserLoginException;
 
@@ -28,9 +29,10 @@ class User
 
     public function createNewUser(): void
     {
-        // if ($this->emailExists()) {
-        //     throw new DuplicatedEmailException();
-        // }
+        $doEmailExists = $this->checkUserEmailAndSetIdIfExists();
+        if ($doEmailExists) {
+            throw new DuplicatedEmailException();
+        }
 
         $this->userEntity->createNewUser(
             $this->name,
@@ -43,9 +45,9 @@ class User
 
     public function checkLoginCredentials(): bool
     {
-        $isEmailValid = $this->checkUserEmailAndSetIdIfValid();
+        $doEmailExists = $this->checkUserEmailAndSetIdIfExists();
 
-        if (!$isEmailValid) {
+        if (!$doEmailExists) {
             throw new UserLoginException("This email doesn't exist!");
         }
 
@@ -56,6 +58,27 @@ class User
             throw new UserLoginException("Your password is wrong!");
         }
         return true;
+    }
+
+    public function getUserData(int $id): array
+    {
+        $userdata = $this->userEntity->getUserDataById($id);
+        $this->catchMysqlException();
+
+        if (!$userdata) {
+            throw new InvalidSessionException("This session is invalid!");
+        }
+        return $userdata;
+    }
+
+    public function validateUserId(int $id): void
+    {
+        $userdata = $this->userEntity->checkIfIdExist($id);
+        $this->catchMysqlException();
+
+        if (!$userdata) {
+            throw new InvalidSessionException("This session doesn't exists!");
+        }
     }
 
     public function getId(): int
@@ -73,7 +96,7 @@ class User
         return $this->email;
     }
 
-    private function checkUserEmailAndSetIdIfValid(): bool
+    private function checkUserEmailAndSetIdIfExists(): bool
     {
         $userDataList = $this->userEntity->getUserList();
         $this->catchMysqlException();
