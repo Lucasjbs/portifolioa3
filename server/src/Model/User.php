@@ -3,6 +3,7 @@
 namespace Portifolio\Workbench\Model;
 
 use Portifolio\Workbench\Entity\UserEntity;
+use Portifolio\Workbench\Exception\AdminUserException;
 use Portifolio\Workbench\Exception\DuplicatedEmailException;
 use Portifolio\Workbench\Exception\InvalidSessionException;
 use Portifolio\Workbench\Exception\UserEntityException;
@@ -78,6 +79,16 @@ class User
 
         if (!$userdata) {
             throw new InvalidSessionException("This session doesn't exists!");
+        }
+    }
+
+    public function checkAdminStatus(int $id): void
+    {
+        $userdata = $this->userEntity->checkIfUserIsAdmin($id);
+        $this->catchMysqlException();
+
+        if (!$userdata) {
+            throw new AdminUserException("This user is not admin!");
         }
     }
 
