@@ -82,4 +82,20 @@ class UserEntity extends Connection
         }
         return false;
     }
+
+    public function checkIfUserIsAdmin(int $id): int
+    {
+        $sql = "SELECT admin FROM $this->tablename WHERE id = $id";
+
+        try {
+            $result = $this->conn->query($sql);
+            $data = $result->fetch_assoc();
+            if(isset($data['admin'])){
+                return $data['admin'];
+            }
+        } catch (mysqli_sql_exception $e) {
+            $this->mysqliResponse->modifyResponseData(400, $e->getMessage(), ['mysqli_code' => $e->getCode()]);
+        }
+        return 0;
+    }
 }
