@@ -1,0 +1,30 @@
+.swiper-wrapper {
+    justify-content: left;
+    align-items: flex-start;
+}
+.swiper-slide {
+    justify-content: left;
+}
+h3.titleName{
+    font-weight: bold;
+    font-size: 20px;
+    color: darkblue;
+}
+h3.titleJob{
+    color: darkblue;
+    font-style: italic;
+    font-size: 16px;
+}
+.card2 .subtitle,
+.card3 .subtitle{
+    color: darkblue;
+    font-weight: bold;
+}
+h3.subtitle{
+    font-size: 18px;
+    color: darkblue;
+    font-weight: bold;
+}
+.sectionContent{
+    margin-bottom: 30px;
+}

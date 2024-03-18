@@ -229,6 +229,10 @@
     background-position: -165px 8px
 }
 
+.globalNav-item.type-profile a {
+    background-position: -165px 8px
+}
+
 .globalNav-item.type-login a {
     background-position: -390px 8px
 }
@@ -982,5 +986,7 @@ ul.floorTab.type-section {
     border-radius: 10%;
 }
 
-
+.is-hidden{
+    visibility: hidden;
+}
 

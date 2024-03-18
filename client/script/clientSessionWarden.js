@@ -24,7 +24,7 @@ function ajaxSessionRequest(requestData) {
                 resolve();
             },
             error: function (xhr, status, error) {
-                reject(JSON.parse(xhr.responseText));
+                // reject(JSON.parse(xhr.responseText));
             }
         })
     });
@@ -36,12 +36,15 @@ function checkSessionForHeader() {
     };
 
     ajaxSessionRequest(requestData).then(function (data) {
-        // const userName = document.getElementById('userName');
-        // const userEmail = document.getElementById('userEmail');
-        // userName.innerHTML = "Your name: " + data.name;
-        // userEmail.innerHTML = "Your email: " + data.email;
-        return true;
+        const profileNav = document.querySelector('.globalNav-item.type-profile');
+        const logoutNav = document.querySelector('.globalNav-item.type-logout');
+        profileNav.removeAttribute("v-cloak");
+        logoutNav.removeAttribute("v-cloak");
 
+        const loginNav = document.querySelector('.globalNav-item.type-login');
+        const registertNav = document.querySelector('.globalNav-item.type-register');
+        loginNav.setAttribute("v-cloak", "");
+        registertNav.setAttribute("v-cloak", "");
     }).catch(function (err) {
         return false;
     });
