@@ -24,15 +24,7 @@
                     </div>
                     <!-- Fix type_service -->
                     <div class="header_dropdown_nav type_service" id="dropdown_service">
-                        <div class="header_dropdown_nav_Link"> Other </div>
-
-                        <div class="header_dropdown_nav_group type_service">
-                            <ul class="header_dropdown_list">
-                                <li class="header_dropdown_list_item">
-                                    <a href="#">N/A</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <div class="header_dropdown_nav_Link toogleNavBar" onclick="hideNavBar()">Hide</div>
                     </div>
                 </div>
                 <script type="text/javascript" src="/script/toggleLanguage.js"></script>
@@ -68,20 +60,20 @@
                 </div>
 
                 <ul class="globalNav">
-                    <li class="globalNav-item type-register">
-                        <a href="/registration"><i>Registration</i></a>
-                    </li>
-                    <li class="globalNav-item type-register">
-                        <a href="/profile"><i>Profile</i></a>
-                    </li>
                     <li class="globalNav-item type-login">
                         <a href="/login"><i>Log in</i></a>
                     </li>
-                    <li class="globalNav-item type-logout">
-                        <a href="/logout"><i>Log out</i></a>
+                    <li class="globalNav-item type-register">
+                        <a href="/registration"><i>Registration</i></a>
+                    </li>
+                    <li class="globalNav-item type-profile" v-cloak>
+                        <a href="/profile"><i>Profile</i></a>
                     </li>
                     <li class="globalNav-item type-favorite" v-cloak>
                         <a href="/favorites"><i>Favorites</i></a>
+                    </li>
+                    <li class="globalNav-item type-logout" v-cloak>
+                        <a href="/logout"><i>Log out</i></a>
                     </li>
 
                     <li class="globalNav-item type-guide">
@@ -112,7 +104,8 @@
                         <li class="floorTab-item type-portfolio "><a href="/portfolio">Portfolio</a> </li>
                         <li class="floorTab-item type-apps   "><a href="/">Section 4</a></li>
                         <!-- add yellow, red, brown -->
-                        <li class="floorTab-item type-add "><a href="/">Section 5</a></li>
+                        <!-- projects dashboard -->
+                        <li class="floorTab-item type-add "><a href="/">Section 5</a></li> 
                         <li class="floorTab-item type-add "><a href="/">Section 6</a></li>
                         <li class="floorTab-item type-add"><a href="/">Section 7</a></li>
                         <li class="floorTab-item type-admin"><a href="/admin">Admin</a></li>

@@ -1,6 +1,3 @@
-document.getElementById("enLangLink").setAttribute("href", "/en");
-document.getElementById("brLangLink").setAttribute("href", "/br");
-
 const regexEn = /\/(en)(?![A-Z])/;
 const regexBr = /\/(br)(?![A-Z])/;
 const url = window.location.href;
@@ -19,5 +16,4 @@ if (regexBr.test(url)) {
 }
 else {
     // Language = English (Default)
-
 }
