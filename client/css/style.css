@@ -751,7 +751,7 @@
 .work_5col,
 .work_img,
 .push_work,
-.work_thumb {
+.block_thumb {
     position: relative
 }
 
@@ -777,7 +777,7 @@
     cursor: default
 }
 
-.work_category {
+.article_category {
     margin: 6px 0;
     border-radius: 0;
     text-align: center;
@@ -788,65 +788,33 @@
     color: #555
 }
 
-.work_category.type_MNG,
-.work_category.type_MDC,
-.work_category.type_SCM,
-.work_category.type_WBT,
-.work_category.type_comic {
+.article_category.type_tutorial{
     background: #e6f7d6;
     color: #56842a
 }
 
-.work_category.type_IST,
-.work_category.type_INV,
-.work_category.type_ICG,
-.work_category.type_IN2,
-.work_category.type_GSH,
-.work_category.type_magazine {
+.article_category.type_web_dev {
     background: #e9f5ff;
     color: #5d84a7
 }
 
-.work_category.type_DNV,
-.work_category.type_QIZ,
-.work_category.type_TBL,
-.work_category.type_PZL,
-.work_category.type_ACN,
-.work_category.type_ADV,
-.work_category.type_RPG,
-.work_category.type_SLN,
-.work_category.type_TYP,
-.work_category.type_STG,
-.work_category.type_ETC,
-.work_category.type_GAE,
-.work_category.type_MOV,
-.work_category.type_oneshot,
-.work_category.type_short {
+.article_category.type_hints {
     background: #f5eaff;
     color: #935fc1
 }
 
-.work_category.type_SOU,
-.work_category.type_MUS {
+.article_category.type_news {
     background: #fbeeca;
     color: #c56601
 }
 
-.work_category.type_KSV,
-.work_category.type_NRE,
-.work_category.type_NR2,
-.work_category.type_ET3,
-.work_category.type_ET4,
-.work_category.type_TOL,
-.work_category.type_IMT,
-.work_category.type_AMT,
-.work_category.type_VCM {
+.article_category.type_archive {
     background: #eee;
     color: #777
 }
 
 /* Articles */
-.recommend_work_item {
+.grid_block {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -859,8 +827,8 @@
     transition: none
 }
 
-.recommend_work_item .author_name,
-.recommend_work_item .work_name {
+.grid_block .author_name,
+.grid_block .block_title {
     font-weight: bold;
     font-size: 13px;
     display: -webkit-box;
@@ -871,19 +839,19 @@
     margin-top: 10px
 }
 
-.recommend_work_item .work_name~* {
+.grid_block .block_title~* {
     margin-top: 10px;
     padding: 0
 }
 
-.recommend_work_item .maker_name {
+.grid_block .creator_name {
     margin-top: 6px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap
 }
 
-.recommend_work_item .star_rating::before {
+.grid_block .star_rating::before {
     display: block;
     width: 80px;
     height: 16px;
@@ -894,43 +862,43 @@
     background-size: 160px 32px
 }
 
-.recommend_work_item .star_rating.star_10::before {
+.grid_block .star_rating.star_10::before {
     background-position: -64px 0
 }
 
-.recommend_work_item .star_rating.star_15::before {
+.grid_block .star_rating.star_15::before {
     background-position: -48px -16px
 }
 
-.recommend_work_item .star_rating.star_20::before {
+.grid_block .star_rating.star_20::before {
     background-position: -48px 0
 }
 
-.recommend_work_item .star_rating.star_25::before {
+.grid_block .star_rating.star_25::before {
     background-position: -32px -16px
 }
 
-.recommend_work_item .star_rating.star_30::before {
+.grid_block .star_rating.star_30::before {
     background-position: -32px 0
 }
 
-.recommend_work_item .star_rating.star_35::before {
+.grid_block .star_rating.star_35::before {
     background-position: -16px -16px
 }
 
-.recommend_work_item .star_rating.star_40::before {
+.grid_block .star_rating.star_40::before {
     background-position: -16px 0
 }
 
-.recommend_work_item .star_rating.star_45::before {
+.grid_block .star_rating.star_45::before {
     background-position: 0 -16px
 }
 
-.recommend_work_item .star_rating.star_50::before {
+.grid_block .star_rating.star_50::before {
     background-position: 0 0
 }
 
-.recommend_list .work_thumb {
+.page_content .block_thumb {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -939,7 +907,7 @@
     background: #f6f6f6
 }
 
-.recommend_list img {
+.page_content img {
     position: absolute;
     top: 0;
     right: 0;
@@ -950,7 +918,7 @@
     margin: auto
 }
 
-.recommend_list .work_thumb:hover img {
+.page_content .block_thumb:hover img {
     opacity: 0.85
 }
 
