@@ -13,6 +13,9 @@ switch ($route) {
     case '/portfolio':
         include './pages/portfolio.html';
         break;
+    case '/portfolio/pdf':
+        include './pages/portfolio-pdf.html';
+        break;
     case '/admin':
         include './pages/admin.html';
         break;
