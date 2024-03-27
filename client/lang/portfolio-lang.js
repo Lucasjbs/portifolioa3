@@ -7,7 +7,7 @@ const portfolioUrl = window.location.href;
 
 if (portfolioRegexBr.test(portfolioUrl)) {
     const card1Content = document.querySelector(".card1 .cardContent");
-    card1Content.textContent = 'Experiente em desenvolvimento de códigos back-end em ambientes dinâmicos como o de startups de tecnologia, juntamente com experiência prática como desenvolvedor full-stack em vários projetos universitários e pessoais.';
+    card1Content.innerHTML = '<p>Experiente em desenvolvimento de códigos back-end em ambientes dinâmicos como o de startups de tecnologia, juntamente com experiência prática como desenvolvedor full-stack em vários projetos universitários e pessoais.</p>';
 
     const card2Content1 = document.querySelector(".card2 .cardContent1");
     const card2Content2 = document.querySelector(".card2 .cardContent2");
@@ -23,7 +23,7 @@ if (portfolioRegexBr.test(portfolioUrl)) {
         '<p>&#187; Proficiente em <strong>documentação de projetos</strong>, com foco em documentação clara e abrangente para auxiliar na compreensão e manutenção do projeto;</p>' +
         '<p>&#187; Proficiente em <strong>sistemas de controle de versão</strong> como Git, GitHub e GitLab, com experiência em gerenciamento de repositórios de código e colaboração com equipes;</p><p>&#187; Familiarizado com <strong>Slim Framework, HyperF e Elastic</strong> para desenvolvimento eficiente de backend;</p><p>&#187; Familiarizado com outras linguagens de programação, como <strong>C/C++, Java, C#</strong>;</p>';
 
-    experienceSection.innerHTML = '<strong>MOVA | Crédito como Serviço</strong>' +
+    experienceSection.innerHTML = '<p><strong>MOVA | Crédito como Serviço</strong></p>' +
         '<p>Programador Júnior</p>' +
         '<p>Janeiro de 2023 - Janeiro de 2024, São Paulo, Brasil</p>' +
         '<p>A Mova é a primeira plataforma de empréstimo peer-to-peer aprovada e supervisionada pelo Banco Central do Brasil na forma de uma Sociedade de Empréstimo entre Pessoas (SEP).</p>' +
@@ -39,14 +39,13 @@ if (portfolioRegexBr.test(portfolioUrl)) {
         '<p>&#x203A; Executei com sucesso migrações CI/CD, contribuindo para o aprimoramento dos processos de integração contínua e entrega contínua.</p>' +
         '<p>&#x203A; Executei migrações de serviços previamente desenvolvidos em Slim para a arquitetura HyperF, resultando em um desempenho e escalabilidade aprimorados.</p>' +
         '<br><br>' +
-        '<strong>Instituto Federal de Educação, Ciência e Tecnologia do Sul de Minas Gerais.</strong>' +
+        '<p><strong>Instituto Federal de Educação, Ciência e Tecnologia do Sul de Minas Gerais.</strong></p>' +
         '<p>Programa de Mediadores Virtuais de Ensino</p>' +
         '<p>Março de 2021 - Agosto de 2021, Poços de Caldas, Minas Gerais, Brasil</p>' +
         '<p>Bolsista no programa de mediadores virtuais de ensino, cujo propósito era auxiliar a comunicação entre alunos e professores durante o ensino remoto, sob a orientação do coordenador educacional André Gripp.</p>';
 
-    aboutSection.innerHTML = '<p>Olá! Sou Lucas Bastos, um Engenheiro de Computação formado no Instituto Federal, dedicado ao meu trabalho no desenvolvimento web com backend usando PHP. Ao longo da minha jornada profissional, naveguei por caminhos desafiadores que me ensinaram a importância da disciplina, colaboração, aprendizado contínuo e da busca incessante pelo crescimento profissional.</p>' +
-        '<p>Atualmente, estou buscando novas conexões e oportunidades para trabalhar no desenvolvimento de backend, trocar ideias, crescer profissionalmente e, se possível, trabalhar no exterior.</p>' +
-        '<p>Tenho experiência de trabalho em desenvolvimento PHP, explorando o framework Slim, a biblioteca HyperF, MySQL, Docker, e seguindo os padrões UML, desenvolvimento orientado a testes (TDD) e metodologia SCRUM.</p>';
+    aboutSection.innerHTML = '<p>Olá! Sou Lucas Bastos, um dedicado desenvolvedor de software que, ao longo de minha jornada profissional, passei por caminhos desafiadores que me ensinaram a importância da disciplina, da colaboração, do aprendizado contínuo e da busca incessante pelo crescimento profissional.</p>' +
+        '<p>Atualmente, estou buscando novas conexões e oportunidades para trabalhar no desenvolvimento de backend, trocar ideias e crescer profissionalmente.</p>';
 
     const educationSubtitle = document.querySelector(".education.subtitle");
     const languagesSubtitle = document.querySelector(".languages.subtitle");

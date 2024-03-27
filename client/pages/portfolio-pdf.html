@@ -6,7 +6,7 @@
     removeAllActiveFloors();
 </script>
 
-<link rel="stylesheet" href="/css/portfolioAddons.css" type="text/css" id="swiper" />
+<link rel="stylesheet" href="/css/portfolioPDFAddons.css" type="text/css" id="swiper" />
 
 <div id="wrapper">
     <div id="main">
@@ -34,22 +34,6 @@
                             </li>
 
                             <li class="swiper-slide">
-                                <div class="card2">
-                                    <h3 class="education subtitle">Education</h3>
-                                    <div class="cardContent1">
-                                        <p>Instituto Federal do Sul de Minas - Campus Poços de Caldas</p>
-                                        <p>Bachelor's Degree in Computer Engineering · (2016 - 2022)</p>
-                                    </div>
-                                    <br>
-                                    <h3 class="languages subtitle">Languages</h3>
-                                    <div class="cardContent2">
-                                        <p>&#x203A; Fluent English</p>
-                                        <p>&#x203A; Fluent Portuguese</p>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="swiper-slide">
                                 <div class="card3">
                                     <h3 class="contact subtitle">Contact</h3>
                                     <div class="cardContent">
@@ -65,6 +49,20 @@
                         </ul>
                     </div>
 
+                    <hr>
+                    <div class="card2">
+                        <h3 class="education subtitle">Education</h3>
+                        <div class="cardContent1">
+                            <p>Instituto Federal do Sul de Minas - Campus Poços de Caldas</p>
+                            <p>Bachelor's Degree in Computer Engineering · (2016 - 2022)</p>
+                        </div>
+                        <br>
+                        <h3 class="languages subtitle">Languages</h3>
+                        <div class="cardContent2">
+                            <p>&#x203A; Fluent English</p>
+                            <p>&#x203A; Fluent Portuguese</p>
+                        </div>
+                    </div>
                     <hr>
                     <h3 class="skills subtitle">Skills: </h3>
                     <div class="skills sectionContent">
@@ -86,7 +84,7 @@
                     <hr>
                     <h3 class="experience subtitle">Experience: </h3>
                     <div class="experience sectionContent">
-                        <strong>MOVA | Credit as a Service</strong>
+                        <p><strong>MOVA | Credit as a Service</strong></p>
                         <p>Junior Programmer</p>
                         <p>January 2023 - January 2024, São Paulo, Brasil</p>
                         <p>Mova is the 1st Peer-to-Peer Lending platform approved and supervised by the Brazilian
@@ -117,7 +115,8 @@
                             architecture, resulting in enhanced performance and scalability.</p>
                         <br>
                         <br>
-                        <strong>Instituto Federal de Educação, Ciência e Tecnologia do Sul de Minas Gerais.</strong>
+                        <p><strong>Instituto Federal de Educação, Ciência e Tecnologia do Sul de Minas Gerais.</strong>
+                        </p>
                         <p>Virtual Teaching Mediator Program</p>
                         <p>March 2021 - August 2021, Poços de Caldas, Minas Gerais, Brasil</p>
                         <p>Scholar in the virtual teaching mediators program, whose purpose was to assist communication
@@ -141,3 +140,11 @@
 </div>
 
 <script type="text/javascript" src="/lang/portfolio-lang.js"></script>
+<script>
+    document.getElementById("enLangLink").setAttribute("href", "/en/portfolio/pdf");
+    document.getElementById("brLangLink").setAttribute("href", "/br/portfolio/pdf");
+    const topHeaderNavBar = document.querySelector(".headerCore_top");
+    const titlePortfolio = document.querySelector(".title_01");
+    topHeaderNavBar.classList.add("is-hidden");
+    titlePortfolio.classList.add("is-hidden");
+</script>
