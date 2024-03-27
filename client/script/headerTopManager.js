@@ -1,14 +1,14 @@
 const toggleLanguage = document.getElementById('dropdown_language');
-const dropLanguageGroup = document.querySelector('.header_dropdown_nav_group.type_language');
+const dropLanguageGroup = document.querySelector('.header_dropdown_nav_group');
 
 toggleLanguage.addEventListener('click', function () {
     dropLanguageGroup.classList.toggle('is_active');
 });
 
-function hideNavBar(forceHide) {
-    const navBarToggle = document.querySelector('.header_dropdown_nav_Link.toogleNavBar');
-    const navBarSection1 = document.querySelector('.headerCore-sub');
-    const navBarSection2 = document.querySelector('.headerCore-main');
+function hideNavbar(forceHide) {
+    const navBarToggle = document.querySelector('.header_dropdown_nav_Link.type_option');
+    const navBarSection1 = document.querySelector('.header_search');
+    const navBarSection2 = document.querySelector('.header_main');
     const navBarSection3 = document.querySelector('.floorSubNav');
     const headerDescription = document.getElementById('header_description');
 

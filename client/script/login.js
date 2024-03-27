@@ -16,7 +16,7 @@ function responseErrorHandler(response) {
 function ajaxLoginRequest(requestData) {
     $.ajax({
         type: 'POST',
-        url: 'entrypoint.php',
+        url: '/entrypoint.php',
         async: true,
         data: requestData,
         success: function (response) {

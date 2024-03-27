@@ -21,7 +21,7 @@ function responseErrorHandler(response) {
 function ajaxPostRequest(requestData) {
     $.ajax({
         type: 'POST',
-        url: 'entrypoint.php',
+        url: '/entrypoint.php',
         async: true,
         data: requestData,
         success: function (response) {

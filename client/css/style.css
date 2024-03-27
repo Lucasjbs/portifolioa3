@@ -11,14 +11,14 @@
     box-sizing: border-box
 }
 
-.headerCore_top_item {
+.header_top_item {
     display: flex;
     align-items: center;
     padding: 4px 16px 8px;
     font-size: 13px
 }
 
-.headerCore_top {
+.header_top {
     display: flex;
     justify-content: space-between;
     height: 37px
@@ -141,7 +141,7 @@
     background: #fafafa
 }
 
-.headerCore-sub {
+.header_search {
     display: flex;
     align-items: center;
     padding: 0 15px
@@ -442,7 +442,7 @@
     cursor: pointer
 }
 
-.headerCore-mainInner {
+.header_mainInner {
     display: flex;
     width: 100%;
     padding: 0 15px;
@@ -954,7 +954,7 @@
     opacity: 0.85
 }
 
-div.title_01 {
+div.title_main {
     line-height: 30px;
     padding-bottom: 5px;
     margin-bottom: 12px;
@@ -964,8 +964,8 @@ div.title_01 {
     position: relative
 }
 
-div.title_01 h2,
-div.title_01 h3 {
+div.title_main h2,
+div.title_main h3 {
     float: left;
     color: #536280;
     font-size: 14px;
@@ -974,7 +974,7 @@ div.title_01 h3 {
     background: url(../assets/arrow-block-3.png) left center no-repeat
 }
 
-div.title_01 h2 {
+div.title_main h2 {
     font-size: 18px
 }
 
