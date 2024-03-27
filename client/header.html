@@ -1,146 +1,145 @@
 <div id="header">
     <header class="l-header">
-        <div class="headerCore">
+        <div class="header_top">
+            <div class="header_top_item">
+                <p id="header_description"> Welcome to my workbench! </p>
+            </div>
+            <div class="header_top_item">
+                <div class="header_dropdown_nav type_language type_english" id="dropdown_language">
+                    <div class="header_dropdown_nav_Link"> Language </div>
 
-            <div class="headerCore_top">
-                <div class="headerCore_top_item">
-                    <p id="header_description"> Welcome to my workbench! </p>
+                    <div class="header_dropdown_nav_group">
+                        <ul class="header_dropdown_list">
+                            <li>
+                                <a href="#" id="enLangLink">English</a>
+                            </li>
+                            <li>
+                                <a href="#" id="brLangLink">Portuguese</a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
-                <div class="headerCore_top_item">
-                    <div class="header_dropdown_nav type_language type_english" id="dropdown_language">
-                        <div class="header_dropdown_nav_Link"> Language </div>
+                <div class="header_dropdown_nav" id="dropdown_option">
+                    <div class="header_dropdown_nav_Link type_option" onclick="hideNavbar()">Hide</div>
+                </div>
+            </div>
+        </div>
 
-                        <div class="header_dropdown_nav_group type_language">
-                            <ul class="header_dropdown_list">
-                                <li class="header_dropdown_list_item">
-                                    <a href="#" id="enLangLink">English</a>
+        <div class="header_search">
+            <a href="/" class="logo">
+                <img src="/assets/horizontal_wretch2.png" alt="Workbench Logo" width="64" height="32">
+            </a>
+
+            <div class="globalSearch">
+                <form class="globalSearch-form" action="/search.html" method="post">
+                    <div class="globalSearchSelect">
+                        <div class="globalSearchSelect-lable">
+                            <!-- not sure what [selected] is for, probably for v-model -->
+                            <span v-text="searchCategories[selected]">N/A</span>
+                        </div>
+                        <select v-model="selected" class="globalSearchSelect-list is-active">
+                            <option value="">N/A</option>
+                            <option value="op1">Option 1</option>
+                            <option value="op2">Option 2</option>
+                            <option value="op3">Option 3</option>
+                        </select>
+                    </div>
+                    <div class="globalSearchForm">
+                        <input name="keyword" type="search" id="search_text" ref="keyword" maxlength="145"
+                            autocomplete="off" aria-autocomplete="list" placeholder="Search">
+                    </div>
+                    <button id="search_button" class="globalSearchBtn" type="submit"
+                        @click="saveSelected()"><i>Search</i></button>
+                </form>
+            </div>
+            <div class="detailedSearch">
+                <a href="/adv-search.html">Advanced Search</a>
+            </div>
+
+            <ul class="globalNav">
+                <li class="globalNav-item type-login">
+                    <a href="/login"><i>Log in</i></a>
+                </li>
+                <li class="globalNav-item type-register">
+                    <a href="/registration"><i>Registration</i></a>
+                </li>
+                <li class="globalNav-item type-profile" v-cloak>
+                    <a href="/profile"><i>Profile</i></a>
+                </li>
+                <li class="globalNav-item type-favorite" v-cloak>
+                    <a href="/favorites"><i>Favorites</i></a>
+                </li>
+                <li class="globalNav-item type-logout" v-cloak>
+                    <a href="/logout"><i>Log out</i></a>
+                </li>
+
+                <li class="globalNav-item type-guide">
+                    <div class="guide-description"><a href="#"><i>Guide</i></a>
+                    </div>
+                    <div class="dropdown_list type_guide">
+                        <div class="dropdown_list_inner">
+                            <ul class="menu_list">
+                                <li class="menu_list_item">
+                                    <a href="/help" rel="noopener" target="_blank" class="link">Help</a>
                                 </li>
-                                <li class="header_dropdown_list_item">
-                                    <a href="#" id="brLangLink">Portuguese</a>
+                                <li class="menu_list_item">
+                                    <a href="/about" rel="noopener" target="_blank" class="link">About the site</a>
                                 </li>
                             </ul>
                         </div>
-
                     </div>
-                    <!-- Fix type_service -->
-                    <div class="header_dropdown_nav type_service" id="dropdown_service">
-                        <div class="header_dropdown_nav_Link toogleNavBar" onclick="hideNavBar()">Hide</div>
-                    </div>
-                </div>
-                <script type="text/javascript" src="/script/toggleLanguage.js"></script>
-            </div>
+                </li>
+            </ul>
+        </div>
 
-            <div class="headerCore-sub">
-                <a href="/" class="logo">
-                    <img src="/assets/horizontal_wretch2.png" alt="Workbench Logo" width="64" height="32">
-                </a>
-
-                <div class="globalSearch">
-                    <form class="globalSearch-form" action="/search.html" method="post">
-                        <div class="globalSearchSelect">
-                            <div class="globalSearchSelect-lable">
-                                <!-- not sure what [selected] is for, probably for v-model -->
-                                <span v-text="searchCategories[selected]">N/A</span>
-                            </div>
-                            <select v-model="selected" class="globalSearchSelect-list is-active">
-                                <option value="">N/A</option>
-                                <option value="op1">Option 1</option>
-                                <option value="op2">Option 2</option>
-                                <option value="op3">Option 3</option>
-                            </select>
-                        </div>
-                        <div class="globalSearchForm">
-                            <input name="keyword" type="search" id="search_text" ref="keyword" maxlength="145" autocomplete="off" aria-autocomplete="list" placeholder="Search">
-                        </div>
-                        <button id="search_button" class="globalSearchBtn" type="submit" @click="saveSelected()"><i>Search</i></button>
-                    </form>
-                </div>
-                <div class="detailedSearch">
-                    <a href="/adv-search.html">Advanced Search</a>
-                </div>
-
-                <ul class="globalNav">
-                    <li class="globalNav-item type-login">
-                        <a href="/login"><i>Log in</i></a>
+        <div class="header_main">
+            <div class="header_mainInner">
+                <ul class="floorTab type-section" role="navigation">
+                    <li class="floorTab-item type-home is-active">
+                        <h1><a href="/">Articles</a></h1>
                     </li>
-                    <li class="globalNav-item type-register">
-                        <a href="/registration"><i>Registration</i></a>
-                    </li>
-                    <li class="globalNav-item type-profile" v-cloak>
-                        <a href="/profile"><i>Profile</i></a>
-                    </li>
-                    <li class="globalNav-item type-favorite" v-cloak>
-                        <a href="/favorites"><i>Favorites</i></a>
-                    </li>
-                    <li class="globalNav-item type-logout" v-cloak>
-                        <a href="/logout"><i>Log out</i></a>
-                    </li>
-
-                    <li class="globalNav-item type-guide">
-                        <a href="#"><i>Guide</i></a>
-                        <div class="dropdown_list type_guide">
-                            <div class="dropdown_list_inner">
-                                <ul class="menu_list">
-                                    <li class="menu_list_item">
-                                        <a href="/help.html" rel="noopener" target="_blank" class="link">Help</a>
-                                    </li>
-                                    <li class="menu_list_item">
-                                        <a href="/about.html" class="link">About the site</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
+                    <li class="floorTab-item type-tools "><a href="/tools">Tools</a></li>
+                    <li class="floorTab-item type-portfolio "><a href="/portfolio">Portfolio</a> </li>
+                    <li class="floorTab-item type-apps "><a href="/">Section 4</a></li>
+                    <!-- add yellow, red, brown -->
+                    <!-- projects dashboard -->
+                    <li class="floorTab-item type-add "><a href="/">Section 5</a></li>
+                    <li class="floorTab-item type-add "><a href="/">Section 6</a></li>
+                    <li class="floorTab-item type-add "><a href="/">Section 7</a></li>
+                    <li class="floorTab-item type-admin "><a href="/admin">Admin</a></li>
                 </ul>
             </div>
 
-            <div class="headerCore-main">
-                <div class="headerCore-mainInner">
-                    <ul class="floorTab type-section" role="navigation">
-                        <li class="floorTab-item type-home is-active">
-                            <h1><a href="/">Articles</a></h1>
-                        </li>
-                        <li class="floorTab-item type-tools "><a href="/tools">Tools</a></li>
-                        <li class="floorTab-item type-portfolio "><a href="/portfolio">Portfolio</a> </li>
-                        <li class="floorTab-item type-apps   "><a href="/">Section 4</a></li>
-                        <!-- add yellow, red, brown -->
-                        <!-- projects dashboard -->
-                        <li class="floorTab-item type-add "><a href="/">Section 5</a></li> 
-                        <li class="floorTab-item type-add "><a href="/">Section 6</a></li>
-                        <li class="floorTab-item type-add"><a href="/">Section 7</a></li>
-                        <li class="floorTab-item type-admin"><a href="/admin">Admin</a></li>
+            <div class="floorSubNav">
+                <div class="floorSubNav-item">
+                    <ul class="headerNav">
+                        <li class="headerNav-item"><a href="/" class="home is-active">Main
+                                Page</a></li>
+                        <li class="headerNav-item"><a href="/" class="date">Subsection
+                                2</a></li>
+                        <li class="headerNav-item"><a href="/" class="luck">Subsection
+                                3</a></li>
+                        <li class="headerNav-item"><a href="/" class="measure">Subsection
+                                4</a></li>
+                        <li class="headerNav-item"><a href="/" class="word">Subsection
+                                5</a></li>
+                        <li class="headerNav-item"><a href="/" class="compass">Subsection
+                                6</a></li>
+                        <li class="headerNav-item"><a href="/" class="block">Subsection
+                                7</a></li>
+                        <li class="headerNav-item"><a href="/" class="luck">Subsection
+                                8</a></li>
+                        <li class="headerNav-item"><a href="/" class="sign">Subsection
+                                9</a></li>
                     </ul>
-                </div>
-
-                <div class="floorSubNav">
-                    <div class="floorSubNav-item">
-                        <ul class="headerNav">
-                            <li class="headerNav-item"><a href="/" class="home is-active">Main
-                                    Page</a></li>
-                            <li class="headerNav-item"><a href="/" class="date">Subsection
-                                    2</a></li>
-                            <li class="headerNav-item"><a href="/" class="luck">Subsection
-                                    3</a></li>
-                            <li class="headerNav-item"><a href="/" class="measure">Subsection
-                                    4</a></li>
-                            <li class="headerNav-item"><a href="/" class="word">Subsection
-                                    5</a></li>
-                            <li class="headerNav-item"><a href="/" class="compass">Subsection
-                                    6</a></li>
-                            <li class="headerNav-item"><a href="/" class="block">Subsection
-                                    7</a></li>
-                            <li class="headerNav-item"><a href="/" class="luck">Subsection
-                                    8</a></li>
-                            <li class="headerNav-item"><a href="/" class="sign">Subsection
-                                    9</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
     </header>
 </div>
 
+<script type="text/javascript" src="/script/headerTopManager.js"></script>
 <script type="text/javascript" src="/lang/header-lang.js"></script>
 <script type="text/javascript" src="/script/clientSessionWarden.js">
     checkSessionForHeader();

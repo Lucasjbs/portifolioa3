@@ -2,7 +2,7 @@ function ajaxRequest(requestData) {
     return new Promise(function (resolve, reject) {
         $.ajax({
             type: 'GET',
-            url: 'entrypoint.php',
+            url: '/entrypoint.php',
             async: true,
             data: requestData,
             success: function (response) {

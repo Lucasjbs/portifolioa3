@@ -4,7 +4,7 @@ const requestData = {
 
 $.ajax({
     type: 'GET',
-    url: 'entrypoint.php',
+    url: '/entrypoint.php',
     async: true,
     data: requestData,
     success: function (response) {
