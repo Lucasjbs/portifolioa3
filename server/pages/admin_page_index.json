@@ -1,0 +1,57 @@
+[
+    {
+        "hyperlink_reference": "/admin/textlog/1",
+        "image_source": "/assets/articles/purpleGradient.jpg",
+        "image_description": "Old Company Gradient",
+        "article_category_class": "type_news",
+        "article_category_name": "Personal Log",
+        "title_name": "Aftermath of my First Job",
+        "title_description": "Aftermath of my First Job",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    },
+    {
+        "hyperlink_reference": "/admin/textlog/2",
+        "image_source": "/assets/articles/linkedInLogo.jpg",
+        "image_description": "LinkedIn Logo",
+        "article_category_class": "type_news",
+        "article_category_name": "Personal Log",
+        "title_name": "My LinkedIn Experience 2",
+        "title_description": "My LinkedIn Experience 2",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    },
+    {
+        "hyperlink_reference": "/admin/textlog/3",
+        "image_source": "/assets/articles/cookies.jpg",
+        "image_description": "Cookies",
+        "article_category_class": "type_news",
+        "article_category_name": "Personal Log",
+        "title_name": "Development of Single-Page Website with Custom...",
+        "title_description": "Development of Single-Page Website with Custom Verification Mechanism",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    },
+    {
+        "hyperlink_reference": "/admin/textlog/4",
+        "image_source": "/assets/articles/birdFlight.jpg",
+        "image_description": "Bird Flight",
+        "article_category_class": "type_news",
+        "article_category_name": "Personal Log",
+        "title_name": "Freelancing and Personal Project Management",
+        "title_description": "Freelancing and Personal Project Management",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    },
+    {
+        "hyperlink_reference": "/admin/textlog/5",
+        "image_source": "/assets/articles/frontendDev.jpg",
+        "image_description": "Frontend Dev Tools",
+        "article_category_class": "type_news",
+        "article_category_name": "Personal Log",
+        "title_name": "Administrative Dashboard",
+        "title_description": "Administrative Dashboard",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    }
+]

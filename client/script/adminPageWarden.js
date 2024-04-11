@@ -6,6 +6,7 @@ function ajaxRequest(requestData) {
             async: true,
             data: requestData,
             success: function (response) {
+                console.log(response)
                 if (response !== "" && response !== null) {
                     const userData = JSON.parse(response);
                     resolve(userData.data.content);
@@ -20,14 +21,36 @@ function ajaxRequest(requestData) {
     });
 }
 
-const requestData = {
-    "action": "superUser",
-};
+function getAdminPageIndex() {
+    const requestData = {
+        "action": "superUserIndex",
+    };
 
-ajaxRequest(requestData).then(function (data) {
-    const adminContent = document.getElementById('adminContent');
-    adminContent.innerHTML = data;
+    ajaxRequest(requestData).then(function (data) {
+        const adminContent = document.getElementById('adminContent');
+        adminContent.innerHTML = data;
 
-}).catch(function (err) {
-    // return false;
-});
+    }).catch(function (err) {
+    });
+}
+
+function getAdminTextLog() {
+    const textLogUrl = window.location.href;
+    const match = textLogUrl.match(/\/(\d+)\/?$/);
+
+    if (match && match[1]) {
+        const requestData = {
+            "action": "superUserPage",
+            "page": match[1],
+        };
+
+        ajaxRequest(requestData).then(function (data) {
+            const adminContent = document.getElementById('adminContent');
+            adminContent.innerHTML = data;
+    
+        }).catch(function (err) {
+        });
+    } else {
+        alert("Unable to complete request!");
+    }
+}

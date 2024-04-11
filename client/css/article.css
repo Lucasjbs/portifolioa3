@@ -4,7 +4,8 @@ h2 {
     font-weight: bold;
 }
 
-.artcileContent p {
+.artcileContent p,
+#adminContent p {
     display: block;
     max-width: 70%;
     margin-bottom: 10px;

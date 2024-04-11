@@ -18,14 +18,14 @@ class AdminGetPageAction
         $this->request = $request;
     }
 
-    public function runAction(): void
+    public function runAction(?int $pageIndex = null): void
     {
         session_start();
 
         try {
             $user = new User();
             $this->validateSession($user);
-            $data = $this->returnAdminFiles();
+            $data = $this->returnAdminFiles($pageIndex);
         } catch (Exception $e) {
             $this->response->modifyResponseData(400, $e->getMessage(), []);
             $this->response->returnResponse();
@@ -49,9 +49,12 @@ class AdminGetPageAction
         throw new AdminUserException("This session is invalid!");
     }
 
-    private function returnAdminFiles(): string
+    private function returnAdminFiles(?int $pageIndex): string
     {
         $service = new AdminProtectedData();
-        return $service->getFile();
+        if($pageIndex){
+            return $service->getTextlogPage($pageIndex);
+        }
+        return $service->getIndexPage();
     }
 }
