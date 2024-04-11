@@ -1,0 +1,46 @@
+[
+    {
+        "hyperlink_reference": "/br/article/1",
+        "image_source": "/assets/articles/frontendDev.jpg",
+        "image_description": "Ferramentas Frontend",
+        "article_category_class": "type_web_dev",
+        "article_category_name": "Web Dev",
+        "title_name": "Minha experiência com Desenvolvimento Front End",
+        "title_description": "Minha experiência com Front End",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    },
+    {
+        "hyperlink_reference": "/br/article/2",
+        "image_source": "/assets/articles/webHostApache.jpg",
+        "image_description": "Web Hosting e Apache",
+        "article_category_class": "type_web_dev",
+        "article_category_name": "Web Dev",
+        "title_name": "Web Hosting e Apache",
+        "title_description": "Minha experiência com Web Hosting",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    },
+    {
+        "hyperlink_reference": "/br/article/3",
+        "image_source": "/assets/articles/mySqlLogo.jpg",
+        "image_description": "Banco de Dados MySQL",
+        "article_category_class": "type_tutorial",
+        "article_category_name": "Tutorial",
+        "title_name": "Banco de Dados MySQL - Guia para Iniciantes",
+        "title_description": "Minha experiência com MySQL",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    },
+    {
+        "hyperlink_reference": "/br/article/4",
+        "image_source": "/assets/articles/backendCode.jpg",
+        "image_description": "Código Back End",
+        "article_category_class": "type_web_dev",
+        "article_category_name": "Web Dev",
+        "title_name": "Requisitos de Back End para uma Sessão com CRUD",
+        "title_description": "Minha experiência com Sessões Back End",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    }
+]

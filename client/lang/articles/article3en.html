@@ -1,0 +1,127 @@
+<p>
+    02/04/2024
+</p>
+<img src="/assets/articles/mySqlLogo.jpg" alt="MySql">
+<p>
+    In the vast landscape of database systems, SQL databases stand out as a fundamental tool for storing and managing
+    structured data efficiently. While there are various options available, MySQL remains a popular choice due to its
+    simplicity, robustness, and widespread adoption. In this beginner's guide, I'll walk through the essentials of
+    MySQL, from installation to basic commands, with the minimum requirements for a beginner developer to manage their
+    application data.
+</p>
+<p>- What are SQL Databases?</p>
+<p>
+    SQL, which stands for Structured Query Language, is a domain-specific language used in programming and designed for
+    managing data held in a relational database management system (RDBMS). The relational model organizes data into
+    tables of rows and columns, allowing for easy retrieval, manipulation, and storage of information.
+</p>
+<p>- Getting Started with MySQL on Windows?</p>
+<p>
+    To begin your MySQL journey, the first step is to install it on your system. You can follow Amit Think’s tutorial
+    video down below, but I'll summarize the process with links and some extra explanations.
+</p>
+<p>MySQL Windows Install Guide: https://www.youtube.com/watch?v=uj4OYk5nKCg</p>
+<p>
+    You can download the MySQL installer from the official website and follow the installation wizard. Then, you’ll be
+    prompted to choose the available products, which you probably won't understand much of what each product is if you
+    are a beginner, but basically you’ll select:
+</p>
+<p>- Latest version of MySQL Server;</p>
+<p>- MySQL Workbench (Same version of MySQL Server, or closest to it)</p>
+<p>- MySQL Shell (Same version of MySQL Server, or closest to it)</p>
+<p>
+    From here and on, everything is pretty much “next, next, install”, except that you’ll need to choose a password for
+    MySQL root. If you just want to test some code, just go with “admin” and roll with it, you can change later if you
+    need to. And that’s it, MySQL is installed and now you should be able to connect your code to the database, and
+    access it through the CMD or Workbench.
+</p>
+<p>- Using Workbench:</p>
+<p>
+    Once MySQL is installed, you can interact with it using various tools. MySQL Workbench provides a graphical user
+    interface (GUI) for managing databases, executing queries, and visualizing data. Additionally, you can use the
+    command-line interface (CLI) through CMD or Terminal, which offers more flexibility and control over database
+    operations, and I will show how to use it at the end of this tutorial.
+</p>
+<p>
+    What I recommend doing is, if you're a beginner, use workbench first to learn how some commands work, then start
+    using the CMD for it. To access the Workbench, just find the MySQL Workbench application and select your MySQL
+    Connection. If you just installed it without changing anything during installation, you should have only one, the
+    root connection with 3306 port. Just click on it, and type your password (“admin”, you follow what I did to the
+    letter), then you should have a screen like this:
+</p>
+<p>
+    You probably don’t have Schemas "portfolioa1", "portfolioa3" though, so, to create your new Schema, right click the
+    SCHEMA tab, select Create Schema, give it a name and then apply. This Schema will be our database, apparently
+    there’s some difference between the two, but for us, Schema is basically the same as a database.
+</p>
+<p>
+    Open your new Schema, right click on it and click apply, and then apply again on the pop up window with the code on
+    it. Notice the code it gives you on the second apply: “CREATE SCHEMA `new_schema_name`;”. This is what the Workbench
+    does, it allows you to visualize the codes it writes in the background.
+</p>
+<p>
+    With your Schema/Database ready, create a new table by right click on “Tables” inside your new database. Now, let’s
+    pretend we need to create a very basic “user” table that will contain its data. Our table will need: his name, his
+    age, his description, and if he is married (a boolean).
+</p>
+<p>
+    First of all, a lot of tables you create will need an Auto Incremented ID, to keep track of every user in this case.
+    This ID will also be our Primary Key, so double click the columns first row, and create “id” with those attributes:
+</p>
+<p>
+    For the next row, we want the user’s name. Let’s say we want the length to be a maximum of 45 characters, then our
+    data type will be VARCHAR(45). Every string in MySQL needs to have a limit input. For our description, it can be
+    VARCHAR(255), or MEDIUMTEXT to allow 16MB of characters.
+</p>
+<p>
+    For the age, we should use INT, just like in programming, it's an integer number. For the marriage status, we want a
+    boolean value (true or false), but there’s no such option in our data types. Basically, for that we will need to use
+    TINYINT(1), which will only accept 0 or 1, essentially true or false.
+</p>
+<p>
+    There’s a lot more data types available, but these are the ones you should start messing with as a beginner.
+    Clicking in apply, it should prompt a code list like this:
+</p>
+<p>
+    Click in apply, and then right click in your table and select “SELECT ROWS - Limit 1000”, and it will show you how
+    many users are listed in our “user” table, which should be none by now, because we haven’t inserted any data yet,
+    but it's a useful tool for later.
+</p>
+<p>
+    You can insert data manually through the workbench as well, by double clicking the name, age, description columns,
+    and then clicking in apply, it will give you a code to insert values on the database. But notice it will not allow
+    you to break the rules, such as putting strings in age, which has an Integer data type. This “INSERT INTO” code will
+    be the code we will use in the backend when making requests to the database.
+</p>
+<p>- Connection Parameters and Class Entities with PHP:</p>
+<p>
+    To connect the PHP application with the Database you created, this is the basic set up code you’ll need:
+</p>
+<p>
+    PHP uses mysqli (MySQL improved) to handle connections to MySQL, so this is all we need to establish a connection.
+    Then, to insert data on a table, you can just use the “mysqli $conn” variable to perform a query on the database:
+</p>
+<p>
+    Notice that a mysqli_sql_exception will “catch” if there’s an error in the query. There are other extensions that
+    can be used to make that connection, PDO is a famous one that can connect to MySQL and other databases as well.
+</p>
+<p>- Using CMD:</p>
+<p>
+    Now that the basics are set up, it's good practice for you to start to access your database through the command
+    lines. To do this, open your CMD, and then follow these commands:
+</p>
+<p>- mysql -u root -p</p>
+<p>- show databases;</p>
+<p>- use database_name;</p>
+<p>- show tables;</p>
+<p>- desc my_table_name;</p>
+<p>- select * from my_table_name;</p>
+<p>
+    MySQL serves as an excellent entry point into the realm of SQL databases. By mastering the basic query operations
+    and command-line usage, you lay a solid foundation to improve your database skills while continuing to work on your
+    codes. The key to proficiency lies in practice and exploration, so dive in, experiment, and let your database
+    adventures begin!
+</p>
+<p>
+
+</p>

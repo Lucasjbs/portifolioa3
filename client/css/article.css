@@ -1,0 +1,18 @@
+h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.artcileContent p {
+    display: block;
+    max-width: 70%;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+img{
+    max-width: 480px;
+    max-height: 360px;
+    margin-bottom: 20px;
+}

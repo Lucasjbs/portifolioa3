@@ -60,12 +60,19 @@ switch ($route) {
 
 function articleRoute($route): void
 {
+    // include "./pages/articles/article$id.html";
     switch ($route) {
         case '/article/1':
             include './pages/articles/article1.html';
             break;
         case '/article/2':
             include './pages/articles/article2.html';
+            break;
+        case '/article/3':
+            include './pages/articles/article3.html';
+            break;
+        case '/article/4':
+            include './pages/articles/article4.html';
             break;
         default:
             include '404.php';

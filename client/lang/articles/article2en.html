@@ -1,0 +1,54 @@
+<p>
+    02/04/2024
+</p>
+<img src="/assets/articles/webHostApache.jpg" alt="apache">
+<p>
+    On my journey through the world of web development, once I completed an initial version of my project, I had a
+    daunting task of choosing the right web hosting for my site to publish it online. In my quest for the ideal hosting
+    platform, I stumbled upon various options, each presenting its own set of challenges.
+</p>
+<p>
+    Initially, I chose to work with AWS, but it wasn’t long until I found myself struggling with its complexity. Despite
+    its reputation for scalability and reliability, the labyrinthine interface and absurd amount of services left me
+    feeling overwhelmed. Ultimately, I abandoned the idea, realizing that my current level of expertise wasn't yet
+    suited to work with it.
+</p>
+<p>
+    Searching for simplicity, I stumbled upon Render, a promising hosting platform catering to a wide array of
+    technologies, including Node.js and Docker. However, my reliance on raw PHP made Render incompatible with my current
+    setup. Nevertheless, Render's user-friendly interface and robust features left a good impression, making it an
+    option for future projects.
+</p>
+<p>
+    At this point, I was feeling too much of a noob, but as I sought for answers in online communities like
+    StackOverflow and Reddit, I discovered that both dedicated full fledged developers and novices alike struggled with
+    the complexities of web hosting and cloud services. That was even more the case with platforms like AWS and Google
+    Cloud, which required a deeper understanding of DevOps principles.
+</p>
+<p>
+    In the pursuit of a quick and efficient solution for this problem, I turned to 000webhost, a free service offered by
+    Hostinger. While lacking most features of premium hosting providers, 000webhost provided all tools I needed to
+    upload my website, with a simple environment that I could use to enhance my skills and move to other hosting
+    services later on. When using 000webhost's basic features, I soon discovered that the web server configurations and
+    http requests were being managed by Apache. I also came to the conclusion that the file management should be done
+    using Filezilla to upload file packages because the 000webhost interface can’t upload folders for some reason. This
+    web host also provides me with phpmyadmin, so I can connect to the database and insert data and create requests,
+    which was important for me.
+</p>
+<p>
+    With Apache as my web server manager, I had to add some extra configuration to my personal website, via the
+    .htaccess file. The .htaccess file is used by the Apache web server to control various aspects of website
+    functionality and behavior, in more practical terms, it allows users to override server configuration settings
+    without having to edit the main server configuration file. One of the most common uses of .htaccess is URL
+    rewriting, which enables developers to create search engine-friendly URLs or implement redirects and URL aliases.
+    This is achieved using the Apache mod_rewrite module, and it’s exactly what I needed to allow my index.php file to
+    manage URLs. For example, instead of using /tools.html to access the tools page, I just wanted the user to go to
+    “/tools” and index.php should handle it accordingly by getting the requested URI with PHP.
+</p>
+<p>
+    My experience in search of the appropriate web hosting for my website is a reminder that every setback is an
+    opportunity for growth. While the road to web hosting proficiency is still a long way off, as I take on more
+    challenges and seek more knowledge in search of answers, the landscape of web development is becoming clearer. We
+    need to start somewhere without fear of making ugly mistakes, and learn from it instead while keeping moving
+    forward.
+</p>

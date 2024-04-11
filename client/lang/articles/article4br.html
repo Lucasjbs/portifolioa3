@@ -1,0 +1,60 @@
+<p>
+    02/04/2024
+</p>
+<img src="/assets/articles/backendCode.jpg" alt="backend">
+<p>
+    Dominar a arte das operações CRUD baseadas em sessão é crucial para qualquer desenvolvedor web de backend ou full stack. Depois de lidar com
+    a gestão básica de dados e conectar o servidor backend ao banco de dados para um CRUD básico, rapidamente determinei que meu próximo passo
+    deveria ser criar um sistema de login, para fazer a transição de criar operações CRUD básicas para implementar um método seguro de autenticação.
+    Este próximo projeto é muito mais desafiador, um que molda a importância do tratamento robusto de dados e protocolos de comunicação em todos os
+    níveis de desenvolvimento, mas é um desafio que se espera que um desenvolvedor web domine.
+</p>
+<p>
+    Com a autenticação veio a necessidade de criar as mesmas validações e conexões com o banco de dados que fiz em projetos anteriores, mas desta
+    vez, precisava de validação intensificada, mecanismos de tratamento de erros e melhoria no tratamento de minhas Requisições e Respostas. Ao
+    implementar validações em ambos os lados do cliente e do servidor, foi possível notificar os usuários sobre erros, como entradas de e-mail duplicadas,
+    enquanto também alertava o usuário sobre caracteres inapropriados antes de chamar o servidor, garantindo uma experiência do usuário mais suave.
+</p>
+<p>
+    Mesmo depois que o cliente envia com sucesso sua solicitação, validações de caracteres inapropriados devem ser implementadas também no lado do servidor.
+    O ambiente do lado do cliente é acessível aos usuários e suscetível a modificações de várias maneiras diferentes. Para evitar vulnerabilidades e
+    explorações maliciosas, deve-se presumir que tudo no lado do cliente pode ser modificado, e tudo no lado do servidor, no entanto, não deve ser
+    acessível diretamente pelo cliente e deve estar em uma pasta separada ou em outra porta de conexão.
+</p>
+<p>
+    Um aspecto importante do desenvolvimento de backend está na organização da estrutura de pastas para organização do desenvolvimento e até para a
+    comunicação entre cliente e servidor. Com o meu lado do servidor quase inteiramente escrito em PHP, elaborei uma hierarquia de pastas estruturada para
+    delinear os componentes do lado do cliente e do lado do servidor. O script entrypoint.php servia como uma ponte para facilitar a comunicação e orquestrar
+    o fluxo de dados entre ambos os lados.
+</p>
+<p>
+    A gestão eficiente de rotas é fundamental para guiar as interações do usuário dentro das páginas. Utilizando a variável superglobal $_SERVER do PHP
+    e os dados REQUEST_URI, simplifiquei o tratamento de rotas por meio de um script router.php dedicado. Então, por exemplo, em vez de acessar o arquivo
+    "tools.html" usando "/tools.html" na URL, o usuário deveria ir para "/tools" e "router.php" lidará com a solicitação de acordo. Reforçar caminhos
+    absolutos (ex: "/assets") para ativos do site também foi necessário para garantir compatibilidade em cada página, já que caminhos relativos (ex: "./assets")
+    podem perder o controle de seus ativos se sua aplicação for gerenciada usando os dados REQUEST_URI.
+</p>
+<p>
+    Também é essencial entender que esse método de gestão de rotas funciona por padrão no servidor PHP integrado, mas, se você usar o servidor Apache para o
+    produto final, precisará usar o módulo mod_rewrite no arquivo .htaccess para redirecionar as rotas para o arquivo index.php.
+</p>
+<p>
+    Qualquer sistema de login funcional requer hash de senha robusto e gerenciamento de sessão. Existem várias maneiras diferentes de fazer isso, mas dado que
+    estou usando as funções nativas do PHP, implementei password_hash e password_verify para criptografar e verificar senhas com segurança, e ao mesmo tempo,
+    usei session_start() e a variável $_SESSION[] para construir um gerenciamento de sessão seguro. Como ambos são nativos do PHP, nenhuma biblioteca adicional
+    foi necessária.
+</p>
+<p>
+    Para a senha, assim que todas as validações para sua string são feitas, a senha é hashada e depois salva no banco de dados. Ao validar, a senha hashada é
+    comparada usando password_verify, sem a necessidade de descriptografá-la de volta. Para a Sessão, assim que session_start() é declarado, um arquivo temporário
+    deve ser criado com um ID aleatório. Este arquivo deve conter o ID do usuário se o usuário estiver logado e, caso contrário, deve estar vazio. O Cliente
+    não terá acesso ao ID, ele terá apenas acesso ao nome do arquivo aleatório e hashado, tornando este arranjo relativamente seguro para aplicativos pequenos.
+</p>
+<p>
+    A implementação de um sistema de login funcional usando ferramentas nativas do PHP é um passo importante na trajetória de carreira de um desenvolvedor web.
+    Como ainda há muitas novas ferramentas, linguagens e frameworks para explorar, acredito que apenas a prática e a dedicação permitirão que um desenvolvedor
+    crie aplicativos web resilientes e eficientes a longo prazo.
+</p>
+<p>
+
+</p>
