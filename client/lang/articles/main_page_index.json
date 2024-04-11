@@ -1,0 +1,46 @@
+[
+    {
+        "hyperlink_reference": "/article/1",
+        "image_source": "/assets/articles/frontendDev.jpg",
+        "image_description": "Frontend Dev Tools",
+        "article_category_class": "type_web_dev",
+        "article_category_name": "Web Dev",
+        "title_name": "My Experience with Front End Development",
+        "title_description": "My Experience with Front End",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    },
+    {
+        "hyperlink_reference": "/article/2",
+        "image_source": "/assets/articles/webHostApache.jpg",
+        "image_description": "Web Hosting and Apache",
+        "article_category_class": "type_web_dev",
+        "article_category_name": "Web Dev",
+        "title_name": "Web Hosting and Apache",
+        "title_description": "My Experience with Web Hosting",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    },
+    {
+        "hyperlink_reference": "/article/3",
+        "image_source": "/assets/articles/mySqlLogo.jpg",
+        "image_description": "MySQL Database",
+        "article_category_class": "type_tutorial",
+        "article_category_name": "Tutorial",
+        "title_name": "MySQL Database - Beginner's Guide",
+        "title_description": "My Experience with MySQL",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    },
+    {
+        "hyperlink_reference": "/article/4",
+        "image_source": "/assets/articles/backendCode.jpg",
+        "image_description": "Back End Code",
+        "article_category_class": "type_web_dev",
+        "article_category_name": "Web Dev",
+        "title_name": "Back End Requirements for a CRUD Session",
+        "title_description": "My Experience with Back End Session",
+        "hyperlink_creator": "/portfolio",
+        "creator_name": "LJB"
+    }
+]

@@ -1,0 +1,67 @@
+<p>
+    02/04/2024
+</p>
+<img src="/assets/articles/backendCode.jpg" alt="backend">
+<p>
+    Mastering the art of session-based CRUD operations is crucial for any backend or full stack web developer. After
+    dealing with basic data management and connecting the backend server with the database for a basic CRUD, I quickly
+    determined that my next step should be crafting a login system, to transition from creating basic CRUD operations to
+    implementing a safe method of authentication. This next project is much more of a challenge, one that shapes the
+    importance of robust data handling and communication protocols on all levels of development, but it's a challenge a
+    web developer is expected to master.
+</p>
+<p>
+    With authentication came the need to create the same validations and connections to the database that I did in
+    previous projects, but this time, it needed heightened validation, error handling mechanisms, and improvement in
+    handling my Requests and Responses. By implementing validations on both the client and server sides it was possible
+    to notify users of errors such as duplicate email entries, while also warning the user about any inappropriate
+    characters before calling the server, ensuring a smoother user experience.
+</p>
+<p>
+    Even after the client successfully submits their request, inappropriate character validations must be implemented on
+    the server side as well. The client-side environment is accessible to users and prone to modification in several
+    different ways. To avoid vulnerabilities and malicious exploits, it must be assumed that everything on the client
+    side can be modified, and everything on the server side however, must not be accessible by the client directly and
+    has to be in a separate folder or on another connection port.
+</p>
+<p>
+    An important aspect of backend development lies in organizing the folder structure for development organization and
+    even for communication between client and server. With my server side almost entirely written in PHP, I devised a
+    structured folder hierarchy to delineate client-side and server-side components. The entrypoint.php script served as
+    a bridge for facilitating communication and orchestrating data flow between both sides.
+</p>
+<p>
+    Efficient route management is paramount for guiding user interactions within the pages. Utilizing PHP superglobal
+    variable $_SERVER and the REQUEST_URI data, I simplified route handling through a dedicated router.php script. So
+    for example, instead of accessing the file “tools.html” using “/tools.html” in the URL, the user should go to
+    “/tools” and “router.php” will handle the request accordingly. Enforcing absolute paths (ex: “/assets”) for website
+    assets was also necessary to ensure compatibility across each page, since relative paths (ex: “./assets”) may lose
+    track of your assets if your application is managed using the REQUEST_URI data.
+</p>
+<p>
+    It is also essential to understand that this method of route management works by default in the built in PHP server,
+    but, if you use Apache server for the final product, you’ll need to use mod_rewrite module in the .htaccess file to
+    redirect the routes to index.php file.
+</p>
+<p>
+    Any functional login system requires robust password hashing and session management. There are a number of different
+    ways of doing this, but given that I'm using PHP's native functions, I implemented password_hash and password_verify
+    to encrypt and verify passwords securely, and at the same time, used session_start() and the $_SESSION[] variable to
+    build a secure session management. Since they’re both native to PHP, no additional library was needed.
+</p>
+<p>
+    For the password, as soon as all validations to its string are done, the password is hashed, and then saved in the
+    database. When validating, the hashed password is compared using password_verify, without the need to decrypt it
+    back. For the Session, as soon as session_start() is declared, a temporary file should be created with a random ID.
+    This file should contain the User ID if the user is logged in, and if not, it should be empty. The Client will not
+    have access to the ID, he will only have access to his random and hashed file name, making this arrangement
+    relatively secure for small applications.
+</p>
+<p>
+    The implementation of a functional login system using PHP's native tools is an important step in the career path of
+    a web developer. As there are still many new tools, languages, and frameworks to explore, I believe only practice
+    and dedication will allow a developer to create resilient and efficient web applications in the long run.
+</p>
+<p>
+
+</p>

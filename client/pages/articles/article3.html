@@ -6,7 +6,7 @@
 
 <div id="wrapper">
     <div id="main">
-        <h2 class="artcileTitle">My Experience with Front End Development</h2>
+        <h2 class="artcileTitle">MySQL Database - Beginner's Guide</h2>
         <hr>
 
         <div class="artcileContent">
@@ -19,7 +19,6 @@
                         })
                         .catch(error => console.error('Error fetching data:', error));
                 }
-
             </script>
         </div>
         <br>
@@ -27,12 +26,12 @@
         <br>
         <script type="text/javascript" src="/lang/articles/text_log_manager.js"></script>
         <script>
-            setLanguageLinkAttribute("/article/1");
+            setLanguageLinkAttribute("/article/3");
             if (isLanguagePortuguese) {
-                document.querySelector(".artcileTitle").textContent = "Minha Experiência com Desenvolvimento Front End";
-                fetchArticleAndDisplay("/lang/articles/article1br.html");
+                document.querySelector(".artcileTitle").textContent = "Banco de Dados MySQL - Guia para Iniciantes";
+                fetchArticleAndDisplay("/lang/articles/article3br.html");
             } else
-                fetchArticleAndDisplay("/lang/articles/article1en.html");
+                fetchArticleAndDisplay("/lang/articles/article3en.html");
         </script>
     </div>
 </div>

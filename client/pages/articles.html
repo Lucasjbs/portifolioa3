@@ -5,89 +5,37 @@
             <h2>Articles</h2>
         </div>
 
-        <div class="recommend_list">
-            <div class="swiper-container">
-                <ul class="swiper-wrapper">
+        <div class="page_content">
+            <div id="articleList" class="swiper-container">
+                <script>
+                    function fetchDataAndDisplay(filePath) {
+                        fetch(filePath)
+                            .then(response => response.json()) // Parse the JSON response
+                            .then(data => {
+                                let html = '<ul class="swiper-wrapper">';
 
-                    <li class="swiper-slide">
-                        <div class="recommend_work_item">
-                            <a href="https://www.youtube.com/watch?v=uj4OYk5nKCg" class="work_thumb" target="_blank">
-                                <img src="https://i.ytimg.com/vi/uj4OYk5nKCg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC8yjdDiVI5joR7WRHV4toxo6A-hw"
-                                    alt="The Light Aspect">
-                            </a>
-                            <div class="work_category type_MNG">Dev Tutorial</div>
-                            <a href="https://www.youtube.com/watch?v=uj4OYk5nKCg" title="The Light Aspect"
-                                class="work_name" target="_blank">MySQL Installation Guide</a>
-                            <div class="maker_name">
-                                <a href="https://www.youtube.com/@Amit.Thinks/videos" target="_blank">Amit Thinks</a>
+                                data.forEach(item => {
+                                    html += `<li class="swiper-slide">
+                            <div class="grid_block">
+                                <a href="${item.hyperlink_reference}" class="block_thumb">
+                                    <img src="${item.image_source}" alt="${item.image_description}">
+                                </a>
+                                <div class="article_category ${item.article_category_class}">${item.article_category_name}</div>
+                                <a href="${item.hyperlink_reference}" title="${item.title_description}" class="block_title">${item.title_name}</a>
+                                <div class="creator_name">
+                                    <a href="${item.hyperlink_creator}" target="_blank">${item.creator_name}</a>
+                                </div>
                             </div>
-                            <div class="star_rating star_50" v-cloak>(68)</div>
-                        </div>
-                    </li>
+                        </li>`;
+                                });
+                                html += '</ul>';
 
-                    <li class="swiper-slide">
-                        <div class="recommend_work_item">
-                            <a href="https://www.youtube.com/watch?v=1f2tVLoN3oY" class="work_thumb" target="_blank">
-                                <img src="https://i.ytimg.com/vi/1f2tVLoN3oY/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBeDhiYyICqOasUXULgdHPBs8BRzg"
-                                    alt="Future of Devs">
-                            </a>
-                            <div class="work_category type_MNG">Dev News</div>
-                            <a href="https://www.youtube.com/watch?v=1f2tVLoN3oY" title="Future of Devs"
-                                class="work_name" target="_blank">Rust is a MUST says the White House</a>
-                            <div class="maker_name">
-                                <a href="https://www.youtube.com/@StefanMischook/videos" target="_blank">Stefan
-                                    Mischook</a>
-                            </div>
-                            <div class="star_rating star_50" v-cloak>(68)</div>
-                        </div>
-                    </li>
-
-                    <li class="swiper-slide">
-                        <div class="recommend_work_item">
-                            <a href="https://www.youtube.com/watch?v=SI_WuWOlHKY" class="work_thumb" target="_blank">
-                                <img src="https://i.ytimg.com/vi/SI_WuWOlHKY/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC-gYsFTy4Cj2cGFJLLP154a9KnEw"
-                                    alt="Freelance Programming">
-                            </a>
-                            <div class="work_category type_MNG">Dev News</div>
-                            <a href="https://www.youtube.com/watch?v=SI_WuWOlHKY" title="Freelance Programming"
-                                class="work_name" target="_blank">The Harsh Reality of Freelance Programming</a>
-                            <div class="maker_name">
-                                <a href="https://www.youtube.com/@tom.developer/videos" target="_blank">Tom Shaw</a>
-                            </div>
-                            <div class="star_rating star_50" v-cloak>(68)</div>
-                        </div>
-                    </li>
-
-                    <li class="swiper-slide">
-                        <div class="recommend_work_item">
-                            <a href="/article/1" class="work_thumb">
-                                <img src="https://cdn-icons-png.flaticon.com/512/29/29495.png" alt="FrontEnd Tools">
-                            </a>
-                            <div class="work_category type_IST">Hints and Tips</div>
-                            <a href="/article/1" title="FrontEnd Tools" class="work_name">FrontEnd Tools</a>
-                            <div class="maker_name">
-                                <a href="/portfolio">LJB</a>
-                            </div>
-                            <div class="star_rating star_50" v-cloak>(68)</div>
-                        </div>
-                    </li>
-
-                    <li class="swiper-slide">
-                        <div class="recommend_work_item">
-                            <a href="/article/2" class="work_thumb">
-                                <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/47fcb9400000640005023f0b/0x0.png"
-                                    alt="Hosting Websites">
-                            </a>
-                            <div class="work_category type_IST">Hints and Tips</div>
-                            <a href="/article/2" title="Hosting Websites" class="work_name">Hosting Websites</a>
-                            <div class="maker_name">
-                                <a href="/portfolio">LJB</a>
-                            </div>
-                            <div class="star_rating star_50" v-cloak>(68)</div>
-                        </div>
-                    </li>
-
-                </ul>
+                                // Display the HTML content by setting innerHTML of a container element
+                                document.getElementById('articleList').innerHTML = html;
+                            })
+                            .catch(error => console.error('Error fetching data:', error));
+                    }
+                </script>
             </div>
         </div>
 
@@ -95,3 +43,6 @@
 </div>
 
 <script type="text/javascript" src="/lang/articles-lang.js"></script>
+<script>
+    isLanguagePortuguese ? fetchDataAndDisplay('/lang/articles/main_page_index_br.json') : fetchDataAndDisplay('/lang/articles/main_page_index.json');
+</script>

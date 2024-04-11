@@ -1,0 +1,125 @@
+<p>
+    02/04/2024
+</p>
+<img src="/assets/articles/mySqlLogo.jpg" alt="MySql">
+<p>
+    No vasto cenário dos sistemas de banco de dados, os bancos de dados SQL se destacam como uma ferramenta fundamental para armazenar e gerenciar
+    dados estruturados de forma eficiente. Embora existam várias opções disponíveis, o MySQL permanece uma escolha popular devido à sua
+    simplicidade, robustez e ampla adoção. Neste guia para iniciantes, vou passar pelos conceitos essenciais do MySQL, desde a instalação até
+    os comandos básicos, com os requisitos mínimos para um desenvolvedor iniciante gerenciar os dados de sua aplicação.
+</p>
+<p>- O que são Bancos de Dados SQL?</p>
+<p>
+    SQL, que significa Linguagem de Consulta Estruturada, é uma linguagem específica de domínio usada na programação e projetada para
+    gerenciar dados mantidos em um sistema de gerenciamento de banco de dados relacional (RDBMS). O modelo relacional organiza os dados
+    em tabelas de linhas e colunas, permitindo fácil recuperação, manipulação e armazenamento de informações.
+</p>
+<p>- Começando com MySQL no Windows?</p>
+<p>
+    Para iniciar sua jornada com o MySQL, o primeiro passo é instalá-lo em seu sistema. Você pode seguir o tutorial em vídeo do Amit Think
+    abaixo, mas vou resumir o processo com links e algumas explicações extras.
+</p>
+<p>Guia de Instalação do MySQL no Windows: https://www.youtube.com/watch?v=uj4OYk5nKCg</p>
+<p>
+    Você pode baixar o instalador do MySQL no site oficial e seguir o assistente de instalação. Em seguida, você será solicitado a escolher
+    os produtos disponíveis, dos quais você provavelmente não entenderá muito sobre cada produto se for um iniciante, mas basicamente você
+    selecionará:
+</p>
+<p>- Última versão do MySQL Server;</p>
+<p>- MySQL Workbench (Mesma versão do MySQL Server, ou a mais próxima);</p>
+<p>- MySQL Shell (Mesma versão do MySQL Server, ou a mais próxima).</p>
+<p>
+    A partir daqui, tudo é basicamente “próximo, próximo, instalar”, exceto que você precisará escolher uma senha para o root do MySQL. Se
+    você só quer testar algum código, vá com “admin” e siga em frente, você pode mudar depois se precisar. E é isso, o MySQL está instalado
+    e agora você deverá ser capaz de conectar seu código ao banco de dados e acessá-lo através do CMD ou Workbench.
+</p>
+<p>- Usando o Workbench:</p>
+<p>
+    Depois que o MySQL estiver instalado, você pode interagir com ele usando várias ferramentas. O MySQL Workbench fornece uma interface
+    gráfica do usuário (GUI) para gerenciar bancos de dados, executar consultas e visualizar dados. Além disso, você pode usar a interface
+    de linha de comando (CLI) através do CMD ou Terminal, que oferece mais flexibilidade e controle sobre as operações de banco de dados, e
+    eu mostrarei como usá-la no final deste tutorial.
+</p>
+<p>
+    O que recomendo fazer é, se você é um iniciante, usar o Workbench primeiro para aprender como alguns comandos funcionam, e depois começar
+    a usar o CMD para isso. Para acessar o Workbench, basta encontrar o aplicativo MySQL Workbench e selecionar sua Conexão MySQL. Se você
+    acabou de instalar sem alterar nada durante a instalação, você deve ter apenas uma, a conexão root com a porta 3306. Basta clicar nela e
+    digitar sua senha (“admin”, você segue o que eu fiz ao pé da letra), então você deve ter uma tela como esta:
+</p>
+<p>
+    Provavelmente você não tem os Esquemas "portfolioa1", "portfolioa3", então, para criar seu novo Esquema, clique com o botão direito na
+    aba SCHEMA, selecione Criar Esquema, dê um nome e depois aplique. Este Esquema será nosso banco de dados, aparentemente há alguma
+    diferença entre os dois, mas para nós, Esquema é basicamente o mesmo que um banco de dados.
+</p>
+<p>
+    Abra seu novo Esquema, clique com o botão direito nele e clique em aplicar, e depois aplique novamente na janela pop-up com o código nele.
+    Observe o código que ele te dá no segundo aplicativo: “CREATE SCHEMA `novo_nome_do_esquema`;”. Isso é o que o Workbench faz, ele permite
+    que você visualize os códigos que escreve nos bastidores.
+</p>
+<p>
+    Com seu Esquema/Banco de Dados pronto, crie uma nova tabela clicando com o botão direito em “Tabelas” dentro do seu novo banco de dados.
+    Agora, vamos fingir que precisamos criar uma tabela de usuário muito básica que conterá seus dados. Nossa tabela precisará: nome, idade,
+    descrição e se ele é casado (um booleano).
+</p>
+<p>
+    Antes de mais nada, muitas tabelas que você criar precisarão de um ID Auto Incrementado, para acompanhar cada usuário neste caso. Este ID
+    também será nossa Chave Primária, então clique duas vezes na primeira linha das colunas e crie “id” com esses atributos:
+</p>
+<p>
+    Para a próxima linha, queremos o nome do usuário. Vamos dizer que queremos que o comprimento seja de no máximo 45 caracteres, então nosso
+    tipo de dados será VARCHAR(45). Toda string no MySQL precisa ter um limite de entrada. Para nossa descrição, pode ser VARCHAR(255), ou
+    MEDIUMTEXT para permitir 16MB de caracteres.
+</p>
+<p>
+    Para a idade, devemos usar INT, assim como na programação, é um número inteiro. Para o status de casamento, queremos um valor booleano
+    (verdadeiro ou falso), mas não há essa opção em nossos tipos de dados. Basicamente, para isso, precisaremos usar TINYINT(1), que só
+    aceitará 0 ou 1, essencialmente verdadeiro ou falso.
+</p>
+<p>
+    Há muitos mais tipos de dados disponíveis, mas estes são os que você deve começar a mexer como iniciante.
+    Clicando em aplicar, deve aparecer uma lista de códigos como esta:
+</p>
+<p>
+    Clique em aplicar e, em seguida, clique com o botão direito na sua tabela e selecione "SELECIONAR LINHAS - Limite 1000", e ele mostrará
+    quantos usuários estão listados em nossa tabela "user", que deve ser nenhum por enquanto, porque ainda não inserimos nenhum dado, mas
+    é uma ferramenta útil para mais tarde.
+</p>
+<p>
+    Você também pode inserir dados manualmente através do Workbench, clicando duas vezes nas colunas de nome, idade e descrição, e depois
+    clicando em aplicar, ele fornecerá um código para inserir valores no banco de dados. Mas observe que ele não permitirá que você quebre as
+    regras, como colocar strings na idade, que tem um tipo de dado Integer. Este código "INSERT INTO" será o código que usaremos no backend
+    ao fazer solicitações ao banco de dados.
+</p>
+<p>- Parâmetros de Conexão e Entidades de Classe com PHP:</p>
+<p>
+    Para conectar a aplicação PHP ao Banco de Dados que você criou, este é o código básico de configuração que você precisará:
+</p>
+<p>
+    O PHP usa mysqli (MySQL melhorado) para lidar com conexões com o MySQL, então tudo o que precisamos é estabelecer uma conexão.
+    Depois, para inserir dados em uma tabela, você pode simplesmente usar a variável “mysqli $conn” para executar uma consulta no banco de
+    dados:
+</p>
+<p>
+    Observe que uma mysqli_sql_exception irá “capturar” se houver um erro na consulta. Existem outras extensões que podem ser usadas para
+    fazer essa conexão, PDO é uma famosa que pode se conectar ao MySQL e a outros bancos de dados também.
+</p>
+<p>- Usando o CMD:</p>
+<p>
+    Agora que os conceitos básicos estão configurados, é uma boa prática começar a acessar seu banco de dados através das linhas de
+    comando. Para fazer isso, abra o seu CMD e siga estes comandos:
+</p>
+<p>- mysql -u root -p</p>
+<p>- show databases;</p>
+<p>- use nome_do_banco_de_dados;</p>
+<p>- show tables;</p>
+<p>- desc nome_da_minha_tabela;</p>
+<p>- select * from nome_da_minha_tabela;</p>
+<p>
+    O MySQL serve como um excelente ponto de entrada no mundo dos bancos de dados SQL. Ao dominar as operações básicas de consulta
+    e o uso de linha de comando, você estabelece uma base sólida para aprimorar suas habilidades em bancos de dados enquanto continua
+    a trabalhar em seus códigos. A chave para a proficiência está na prática e na exploração, então mergulhe, experimente e deixe suas
+    aventuras no banco de dados começarem!
+</p>
+<p>
+
+</p>

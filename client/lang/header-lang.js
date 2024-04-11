@@ -2,7 +2,9 @@ const regexEn = /\/(en)(?![A-Z])/;
 const regexBr = /\/(br)(?![A-Z])/;
 const url = window.location.href;
 
-if (regexBr.test(url)) {
+const isLanguagePortuguese = regexBr.test(url);
+
+if (isLanguagePortuguese) {
     // Language = Portuguese
     const toggleLanguage = document.getElementById('dropdown_language');
     toggleLanguage.classList.remove('type_english');

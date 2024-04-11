@@ -1,0 +1,53 @@
+<p>
+    02/04/2024
+</p>
+<img src="/assets/articles/webHostApache.jpg" alt="apache">
+<p>
+    Em minha jornada pelo mundo do desenvolvimento web, uma vez que completei uma versão inicial do meu projeto, tive uma
+    tarefa assustadora de escolher a hospedagem web certa para meu site e publicá-lo online. Na minha busca pela plataforma
+    de hospedagem ideal, deparei-me com várias opções, cada uma apresentando seu próprio conjunto de desafios.
+</p>
+<p>
+    Inicialmente, optei por trabalhar com a AWS, mas não demorou até que eu me visse lutando com sua complexidade. Apesar
+    de sua reputação de escalabilidade e confiabilidade, a interface labiríntica e a quantidade absurda de serviços me deixaram
+    sobrecarregado. No final, abandonei a ideia, percebendo que meu nível atual de expertise ainda não era adequado para
+    trabalhar com ela.
+</p>
+<p>
+    Em busca de simplicidade, deparei-me com o Render, uma plataforma de hospedagem promissora que atende a uma ampla gama de
+    tecnologias, incluindo Node.js e Docker. No entanto, minha dependência de PHP puro tornou o Render incompatível com minha
+    configuração atual. No entanto, a interface amigável do Render e seus recursos robustos deixaram uma boa impressão, tornando-o
+    uma opção para projetos futuros.
+</p>
+<p>
+    Neste ponto, estava me sentindo muito noob, mas ao procurar respostas em comunidades online como StackOverflow e Reddit,
+    descobri que tanto desenvolvedores dedicados quanto novatos lutavam com as complexidades da hospedagem web e serviços em nuvem.
+    Isso era ainda mais verdadeiro com plataformas como AWS e Google Cloud, que exigiam um entendimento mais profundo dos princípios
+    de DevOps.
+</p>
+<p>
+    Na busca por uma solução rápida e eficiente para esse problema, recorri ao 000webhost, um serviço gratuito oferecido pela
+    Hostinger. Apesar de não possuir a maioria dos recursos dos provedores de hospedagem premium, o 000webhost fornecia todas as
+    ferramentas que eu precisava para fazer upload do meu site, com um ambiente simples que eu poderia usar para aprimorar minhas
+    habilidades e migrar para outros serviços de hospedagem mais tarde. Ao usar os recursos básicos do 000webhost, logo descobri que
+    as configurações do servidor web e as solicitações http estavam sendo gerenciadas pelo Apache. Também cheguei à conclusão de
+    que o gerenciamento de arquivos deveria ser feito usando o Filezilla para fazer o upload de pacotes de arquivos, pois a interface
+    do 000webhost não consegue fazer o upload de pastas por algum motivo. Este provedor de hospedagem também me fornece o phpmyadmin,
+    para que eu possa me conectar ao banco de dados, inserir dados e criar solicitações, o que era importante para mim.
+</p>
+<p>
+    Com o Apache como meu gerenciador de servidor web, tive que adicionar algumas configurações extras ao meu site pessoal, via
+    arquivo .htaccess. O arquivo .htaccess é usado pelo servidor web Apache para controlar vários aspectos da funcionalidade e
+    comportamento do site; em termos mais práticos, ele permite que os usuários substituam as configurações de servidor sem ter que
+    editar o arquivo de configuração principal do servidor. Um dos usos mais comuns do .htaccess é a reescrita de URL, que permite
+    que os desenvolvedores criem URLs amigáveis para mecanismos de busca ou implementem redirecionamentos e aliases de URL. Isso é
+    alcançado usando o módulo mod_rewrite do Apache, e era exatamente o que eu precisava para permitir que meu arquivo index.php
+    gerenciasse URLs. Por exemplo, em vez de usar /tools.html para acessar a página de ferramentas, eu queria que o usuário
+    simplesmente fosse para "/tools" e o index.php deveria lidar com isso de acordo, obtendo a URI solicitada com PHP.
+</p>
+<p>
+    Minha experiência na busca pela hospedagem web apropriada para meu site é um lembrete de que cada obstáculo é uma oportunidade
+    de crescimento. Embora o caminho para a proficiência em hospedagem web ainda esteja longe, conforme assumo mais desafios e
+    busco mais conhecimento em busca de respostas, o cenário do desenvolvimento web está se tornando mais claro. Precisamos começar
+    de algum lugar sem medo de cometer erros feios e aprender com isso, mantendo-nos em movimento para frente.
+</p>
