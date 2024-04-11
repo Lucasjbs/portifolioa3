@@ -46,7 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['action'] === 'logout') {
     setcookie("PHPSESSID", "", time() - 3600, "/");
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['action'] === 'superUser') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['action'] === 'superUserIndex') {
     $action = new AdminGetPageAction(new Request($_SERVER['REQUEST_METHOD'], $_GET['action'], true));
     $action->runAction();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['action'] === 'superUserPage') {
+    $action = new AdminGetPageAction(new Request($_SERVER['REQUEST_METHOD'], $_GET['action'], true));
+    $action->runAction($_GET['page']);
 }

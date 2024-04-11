@@ -29,6 +29,9 @@ switch ($route) {
     case '/admin':
         include './pages/admin.html';
         break;
+    case preg_match('~^/admin/textlog/\d+$~', $route) === 1:
+        include './pages/adminTextLog.html';
+        break;
         // Subsection Block
     case '/timer-tools':
         include '404.php';
