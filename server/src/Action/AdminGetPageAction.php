@@ -27,7 +27,7 @@ class AdminGetPageAction
             $this->validateSession($user);
             $data = $this->returnAdminFiles($pageIndex);
         } catch (Exception $e) {
-            $this->response->modifyResponseData(400, $e->getMessage(), []);
+            $this->response->modifyResponseData(401, $e->getMessage(), []);
             $this->response->returnResponse();
             return;
         }

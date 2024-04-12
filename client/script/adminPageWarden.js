@@ -1,23 +1,32 @@
-function ajaxRequest(requestData) {
-    return new Promise(function (resolve, reject) {
-        $.ajax({
-            type: 'GET',
-            url: '/entrypoint.php',
-            async: true,
-            data: requestData,
-            success: function (response) {
-                console.log(response)
-                if (response !== "" && response !== null) {
-                    const userData = JSON.parse(response);
-                    resolve(userData.data.content);
-                }
-                resolve();
-            },
-            error: function (xhr, status, error) {
-                window.location.href = "/login";
-                reject(JSON.parse(xhr.responseText));
-            }
-        })
+function ajaxAdminResponseHandler(response, action) {
+    if (response.status == 201 && action == "superUserIndex") {
+        console.log(response);
+        const adminContent = document.getElementById('adminContent');
+        adminContent.innerHTML = response.data.content;
+    }
+
+    if (response.status == 201 && action == "superUserPage") {
+        const adminContent = document.getElementById('adminContent');
+        adminContent.innerHTML = response.data.content;
+    }
+
+    if (response.status == 401) {
+        window.location.href = "/";
+    }
+}
+
+function ajaxAdminRequest(requestData) {
+    $.ajax({
+        type: 'GET',
+        url: '/entrypoint.php',
+        async: true,
+        data: requestData,
+        success: function (response) {
+            ajaxAdminResponseHandler(JSON.parse(response), requestData.action);
+        },
+        error: function (xhr, status, error) {
+            ajaxAdminResponseHandler(JSON.parse(xhr.responseText), requestData.action);
+        }
     });
 }
 
@@ -26,12 +35,7 @@ function getAdminPageIndex() {
         "action": "superUserIndex",
     };
 
-    ajaxRequest(requestData).then(function (data) {
-        const adminContent = document.getElementById('adminContent');
-        adminContent.innerHTML = data;
-
-    }).catch(function (err) {
-    });
+    ajaxAdminRequest(requestData);
 }
 
 function getAdminTextLog() {
@@ -44,12 +48,7 @@ function getAdminTextLog() {
             "page": match[1],
         };
 
-        ajaxRequest(requestData).then(function (data) {
-            const adminContent = document.getElementById('adminContent');
-            adminContent.innerHTML = data;
-    
-        }).catch(function (err) {
-        });
+        ajaxAdminRequest(requestData);
     } else {
         alert("Unable to complete request!");
     }

@@ -32,7 +32,7 @@ class UserSessionAction
 
             $user->validateUserId($_SESSION['id']);
         } catch (Exception $e) {
-            $this->response->modifyResponseData(400, $e->getMessage(), []);
+            $this->response->modifyResponseData(401, $e->getMessage(), []);
             $this->response->returnResponse();
             return;
         }
