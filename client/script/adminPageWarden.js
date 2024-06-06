@@ -1,6 +1,5 @@
 function ajaxAdminResponseHandler(response, action) {
     if (response.status == 201 && action == "superUserIndex") {
-        console.log(response);
         const adminContent = document.getElementById('adminContent');
         adminContent.innerHTML = response.data.content;
     }

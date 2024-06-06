@@ -77,6 +77,9 @@ function articleRoute($route): void
         case '/article/4':
             include './pages/articles/article4.html';
             break;
+        case '/article/5':
+            include './pages/articles/article5.html';
+            break;
         default:
             include '404.php';
             break;
